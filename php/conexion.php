@@ -1,12 +1,12 @@
 <?php
 function conectar(){
+$server="localhost";
 $user="root";
 $pass="";
-$server="localhost";
 $db="disqueria";
-$con=mysql_connect($server,$user,$pass) or die ("error al concectar".msql_error());
-mysql_select_db($db,$con)or die ("error".msql_error());
+
+$con=mysqli_connect($server,$user,$pass,$db) or die ("error al concectar".mysql_error());
+//mysqli_select_db ($con,  $db)or die ("error".mysql_error());
 return $con;
 }
-
 ?>
