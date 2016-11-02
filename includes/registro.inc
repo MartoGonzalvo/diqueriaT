@@ -6,11 +6,11 @@
 							<form action="php/registrar.php" method="POST" name="adsearch" > 
           							<div class="alert-box success form-feedback"></div>
                  					<div class="register-top-grid">
-					                    <label for="nombre">Nombre</label><input name="nombre"  type="text" class="" value="" /></br>
-										<label for="apellido">Apellido</label><input name="apellido" id="name" type="text" class="" value="" /></br>
-					                    <label for="email">Email</label><input name="email" id="email" type="text" class="" value="" /></br>
-										<label for="cont">Contrase&ntilde;a</label><input name="cont"  type="password" class="" value="" /></br>
-										<label for="rcont">Repite Contrase&ntilde;a</label><input type="password" name="rcont" id="rcont"  class="" value="" /></br>
+					                    <label for="nombre">Nombre</label><input name="nombre"  type="text" required="required" /></br>
+										<label for="apellido">Apellido</label><input name="apellido"  required="required" /></br>
+					                    <label for="email">Email</label><input name="email" id="email"  type="email" required="required" /></br>
+										<label for="cont">Contrase&ntilde;a</label><input name="cont"  type="password" required="required"></br>
+										<label for="rcont">Repite Contrase&ntilde;a</label><input type="password" name="rcont" id="rcont"  required="required" /></br>
 								<button name="registrar" id="registrar" class="btn btn-primary">Registrar</button>
 									<div id="msj"></div>
 							</form>
