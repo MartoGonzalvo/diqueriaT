@@ -7,6 +7,25 @@
 	<link  href="bootstrap/js/bootstrap.min.js"  rel="stylesheet" />
 	<link  href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="images/favicon.ico">
+
+	<script>
+			$(function() {
+				var pull 		= $('#pull');
+					menu 		= $('nav ul');
+					menuHeight	= menu.height();
+				$(pull).on('click', function(e) {
+					e.preventDefault();
+					menu.slideToggle();
+				});
+				$(window).resize(function(){
+	        		var w = $(window).width();
+	        		if(w > 320 && menu.is(':hidden')) {
+	        			menu.removeAttr('style');
+	        		}
+	    		});
+			});
+		</script>
+		
 	</head> 
 <body>
 	<div id="outer" >
@@ -45,67 +64,30 @@
 				<div id="body-right">
 					<h2>Top 5 Playlist</h2>
 					<div class="box">
-						<img src="images/pic_2.jpg" width="130" height="86" alt="Pic 1" class="left" />
-						<ul>
-							<li><t1>Rock &amp; roll</t1></li>
-							<li>puesto N 1 </li>
-							<li>ascenso esta semana +1</li>
-						</ul>	
+						<div class="margin">
+										<div id="player">
+
+										<audio controls="" id="audio" preload="auto" tabindex="0" type="audio/mpeg">
+										<source src="https://sites.google.com/site/ciudadbloggerfiles/Home/Get%20Lucky.mp3" type="audio/mp3">
+										        Hola, tu navegador no está actualizado y no puede mostrar este contenido.
+										    </audio>
+										</div>
+										<ul id="playlist">
+										<li class="active"><a href="https://sites.google.com/site/ciudadbloggerfiles/Home/Get%20Lucky.mp3">Get Lucky</a></li>
+										<li><a href="https://sites.google.com/site/ciudadbloggerfiles/Home/Creep.mp3">Creep</a></li>
+										<li><a href="https://sites.google.com/site/ciudadbloggerfiles/Home/Every%20Breath%20You%20Take.mp3">Every Breath You Take</a></li>
+										<li><a href="https://sites.google.com/site/ciudadbloggerfiles/Home/Billie%20Jean.mp3">Billie Jean</a></li>
+										<li><a href="https://sites.google.com/site/ciudadbloggerfiles/Home/Have%20You%20Ever%20Seen%20The%20Rain.mp3">Have You Ever Seen The Rain</a></li>
+										<li><a href="dw.mp3">Full Moon</a></li>
+										</ul>
+										<script src="js/java.js"></script>
+
+										</div>
+
 						<div class="btns">
 							<a href="#"><span>Votar</span></a>
 							<a href="#"><span>Agregar </span></a>
 						</div>
-						</div>
-					
-					<div class="box">
-						<img src="images/pic_2.jpg" width="130" height="86" alt="Pic 1" class="left" />
-						<ul>
-							<li><t1>Blues</t1></li>
-							<li>puesto N 2 </li>
-							<li>descenso esta semana -1</li>
-						</ul>	
-						<div class="btns">
-							<a href="#"><span>Votar</span></a>
-							<a href="#"><span>Agregar</span></a>
-						</div>
-						
-					</div>
-					<div class="box">
-						<img src="images/pic_2.jpg" width="130" height="86" alt="Pic 1" class="left" />
-						<ul>
-							<li><t1>Reggae</t1></li>
-							<li>puesto N 3 </li>
-							<li>ascenso esta semana +3</li>
-						</ul>	
-						<div class="btns">
-							<a href="#"><span>Votar</span></a>
-							<a href="#"><span>Agregar </span></a>
-						</div>
-						
-					</div>
-					<div class="box">
-						<img src="images/pic_3.jpg" width="130" height="86" alt="Pic 2" class="left" />
-						<ul>
-							<li><t1>Soul &amp; rebel</t1></li>
-							<li>puesto N 4 </li>
-							<li>ascenso esta semana +1</li>
-						</ul>	
-						<div class="btns">
-							<a href="#"><span>Votar</span></a>
-							<a href="#"><span>Agregar </span></a>
-						</div>
-						
-					</div>
-					<div class="box">
-						<img src="images/pic_4.jpg" width="130" height="86" alt="Pic 3" class="left" />
-						<ul>
-							<li><t1>Ska</t1></li>
-							<li>puesto N 5 </li>
-							<li>descenso esta semana -1</li>
-						</ul>	
-						<div class="btns">
-							<a href="#"><span>Votar</span></a>
-							<a href="#"><span>Agregar</span></a>
 						</div>
 						
 					</div>

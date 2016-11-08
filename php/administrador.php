@@ -25,9 +25,10 @@
 			<div id="head"></div>
 			<div id="head-pip"></div>
 			<ul>
-				<li id="m1"><button class="btn" data-toggle= "modal" data-target="#login">Login</button></li>
-				<li id="m2"><button class="btn" data-toggle= "modal" data-target="#registro">Registro</button></li>
-					
+				<li id="m1"><button class="btn" data-toggle= "modal" data-target="#login">Ver usuario</button></li>
+				<li id="m2"><button class="btn" data-toggle= "modal" data-target="#registro">Ver Reporte</button></li>
+				<li id="m2"><button class="btn" data-toggle= "modal" data-target="#registro">Salir</button></li>
+
 			</ul>
  	           <?php include("../includes/logueo.inc") ?>
  	          <?php include("../includes/registro.inc") ?>

@@ -26,7 +26,7 @@
 			<div id="head-pip"></div>
 			<ul>
 				<li id="m1"><button class="btn" >Crear lista</button></li>
-				<a href="cierra.php"><li id="m2"><button class="btn" >Cerrar Sesion</button></li></a>
+				<a href="cierra.php"><li id="m2"><button class="btn" >Salir</button></li></a>
 					
 			</ul>
  	           <?php include("../includes/logueo.inc") ?>
