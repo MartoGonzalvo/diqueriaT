@@ -63,7 +63,7 @@ text-align: center;
 }
 #player {
 /* Imagen de fondo del primer contenedor */
-background: url(//lh3.googleusercontent.com/-9dx_GmP6Yeg/U06qBO9M4EI/AAAAAAAAFEY/FXrhlltF7xc/s300/bg.png);
+background: url(images/bg.png);
 padding: 10px 20px;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
@@ -75,7 +75,7 @@ display: inline-block
 }
 #player:after {
 /* Imagen animada */
-content: url(//lh3.googleusercontent.com/-KoD5KVOAsGQ/U1B_dWFttoI/AAAAAAAAFFc/uJ3SjLPlDHQ/s75/equalizador.gif);
+content: url(images/equalizador.gif);
 padding-left: 10px;
 }
 #playlist {

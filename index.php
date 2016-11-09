@@ -8,23 +8,6 @@
 	<link  href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="images/favicon.ico">
 
-	<script>
-			$(function() {
-				var pull 		= $('#pull');
-					menu 		= $('nav ul');
-					menuHeight	= menu.height();
-				$(pull).on('click', function(e) {
-					e.preventDefault();
-					menu.slideToggle();
-				});
-				$(window).resize(function(){
-	        		var w = $(window).width();
-	        		if(w > 320 && menu.is(':hidden')) {
-	        			menu.removeAttr('style');
-	        		}
-	    		});
-			});
-		</script>
 		
 	</head> 
 <body>
@@ -66,19 +49,20 @@
 					<div class="box">
 						<div class="margin">
 										<div id="player">
-
+												<p> Reggae</p>
 										<audio controls="" id="audio" preload="auto" tabindex="0" type="audio/mpeg">
-										<source src="https://sites.google.com/site/ciudadbloggerfiles/Home/Get%20Lucky.mp3" type="audio/mp3">
+
+										<source src="mp3/reggae/Do it twice.mp3" type="audio/mp3">
 										        Hola, tu navegador no está actualizado y no puede mostrar este contenido.
 										    </audio>
 										</div>
 										<ul id="playlist">
-										<li class="active"><a href="https://sites.google.com/site/ciudadbloggerfiles/Home/Get%20Lucky.mp3">Get Lucky</a></li>
-										<li><a href="https://sites.google.com/site/ciudadbloggerfiles/Home/Creep.mp3">Creep</a></li>
-										<li><a href="https://sites.google.com/site/ciudadbloggerfiles/Home/Every%20Breath%20You%20Take.mp3">Every Breath You Take</a></li>
-										<li><a href="https://sites.google.com/site/ciudadbloggerfiles/Home/Billie%20Jean.mp3">Billie Jean</a></li>
-										<li><a href="https://sites.google.com/site/ciudadbloggerfiles/Home/Have%20You%20Ever%20Seen%20The%20Rain.mp3">Have You Ever Seen The Rain</a></li>
-										<li><a href="dw.mp3">Full Moon</a></li>
+										<li class="active"><a href="mp3/reggae/Do it twice.mp3">Do it twice</a></li>
+										<li><a href="mp3/reggae/Leva a vibrasao.mp3">Leva vibrasao</a></li>
+										<li><a href="mp3/reggae/esclava.mp3">Esclava</a></li>
+										<li><a href="mp3/reggae/este es mi arte.mp3">Este es mi arte</a></li>
+										<li><a href="mp3/reggae/dreadlocks.mp3">Dreadlocks</a></li>
+										
 										</ul>
 										<script src="js/java.js"></script>
 
