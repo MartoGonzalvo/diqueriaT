@@ -8,6 +8,17 @@
 	<link  href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="images/favicon.ico">
 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script>
+		function cargar(div , desde)
+		{
+		     $(div).load(desde);
+		}
+		</script>
+
+
+
+
 		
 	</head> 
 <body>
@@ -48,6 +59,7 @@
 					<h2>Top 5 Playlist</h2>
 					<div class="box">
 						<div class="margin">
+							<div id="cambio">
 										<div id="player">
 												<p> Reggae</p>
 										<audio controls="" id="audio" preload="auto" tabindex="0" type="audio/mpeg">
@@ -65,10 +77,14 @@
 										
 										</ul>
 										<script src="js/java.js"></script>
-
+										<div class="btns">
+										<a href="#" onclick="cargar('#cambio', 'php/lista2.php')">Siguiente Lista</a>
 										</div>
+										</div>
+							 </div>
 
 						<div class="btns">
+
 							<a href="#"><span>Votar</span></a>
 							<a href="#"><span>Agregar </span></a>
 						</div>
