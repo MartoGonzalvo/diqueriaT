@@ -43,8 +43,8 @@
 	 <div id="body">
 			<div id="body-inner">
 				<div id="body-left">
-					
-					<h2>Disqueria T </h2>
+					<div id="msj"></div>
+					<h2 >Disqueria T </h2>
 					<p>Aqui encontraras amigos con tus gustos musicales, si no para que hacerte amigo.</p>
 					<p> Reggae, Rock, Ska, Soul, Rebel, Pop para divertirse, Dancehall, Blues, Rhythm and blues, Disco, ++</p>
 					<ul class="blank">
@@ -61,7 +61,7 @@
 						<div class="margin">
 							<div id="cambio">
 										<div id="player">
-												<p> Reggae</p>
+												<p style="font-size: 12pt; color: red"> Reggae</p>
 										<audio controls="" id="audio" preload="auto" tabindex="0" type="audio/mpeg">
 
 										<source src="mp3/reggae/Do it twice.mp3" type="audio/mp3">

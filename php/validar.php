@@ -8,6 +8,7 @@ session_start();
 
 	$consulta = mysqli_query( $con, "SELECT * FROM usuario WHERE email = '$email' and contrasena = '$pass' ");
  		
+ 	
 		if(  mysqli_num_rows($consulta) != 1 ){
 			echo ("error validacion");
 			//header("Location: ../index.php?error=1"); //TODO: revisar

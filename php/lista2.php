@@ -1,5 +1,5 @@
 <div id="player">
-				<p> Rock</p>
+				<p style="font-size: 12pt; color: red">SOUL</p>
 		<audio controls="" id="audio" preload="auto" tabindex="0" type="audio/mpeg">
 
 		<source src="mp3/soul/spoiled.mp3"" type="audio/mp3">

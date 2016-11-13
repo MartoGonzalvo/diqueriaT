@@ -52,7 +52,7 @@ body {text-align:center;font:12px arial, sans-serif;background:#eee}
 .btns a:hover {background:#EF1818;color:#fff}
 #copyright {background:top left url(images/footer_bg.gif) repeat-x;float:right;width:700px;clear:both;margin-right:9px;padding-bottom:40px; margin-right:5px}
 #copyright-left {background:top left url(images/footer_left.gif) no-repeat;padding:13px;font-size:13px;text-align:center;}
-
+ 
 
 #playlist, #player {
 width: 300px; /* Ancho de todo el contenedor */
@@ -121,4 +121,8 @@ padding-right: 8px;
 }
 #playlist .active a:hover {
 color: #222; /* Color de la canción activa al pasar el cursor */
+}
+.centrar{
+ align-content: center;
+
 }

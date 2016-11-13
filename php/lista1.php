@@ -1,5 +1,5 @@
 <div id="player">
-				<p> Rock</p>
+				<p style="font-size: 12pt; color: red"> REGGAE</p>
 		<audio controls="" id="audio" preload="auto" tabindex="0" type="audio/mpeg">
 
 		<source src="mp3/rock/claro y oscuro.mp3" type="audio/mp3">
@@ -16,6 +16,6 @@
 										</ul>
 										<script src="js/java.js"></script>
 											<div class="btns">
-											<a href="#" onclick="cargar('#cambio', 'php/lista1.php')">Lista Anterior</a>
-											<a href="#" onclick="cargar('#cambio', 'php/lista3.php')" >Lista Siguiente</a>
+											<a href="#" onclick="cargar('#cambio', 'php/lista5.php')">Lista Anterior</a>
+											<a href="#" onclick="cargar('#cambio', 'php/lista2.php')" >Lista Siguiente</a>
 										</div>

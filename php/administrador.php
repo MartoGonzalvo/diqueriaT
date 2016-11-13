@@ -8,7 +8,7 @@
 	<link  href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="../images/favicon.ico">
 	</head>
-<body> 
+<body>  
 		<?php 
 		session_start();
 		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 1 ){
@@ -27,7 +27,7 @@
 			<ul>
 				<li id="m1"><button class="btn" data-toggle= "modal" data-target="#login">Ver usuario</button></li>
 				<li id="m2"><button class="btn" data-toggle= "modal" data-target="#registro">Ver Reporte</button></li>
-				<li id="m2"><button class="btn" data-toggle= "modal" data-target="#registro">Salir</button></li>
+				<a href="cierra.php"><li id="m2"><button class="btn" >Salir</button></li></a>
 
 			</ul>
  	           <?php include("../includes/logueo.inc") ?>

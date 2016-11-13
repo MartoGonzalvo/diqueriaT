@@ -9,7 +9,7 @@
 	<link rel="shortcut icon" href="../images/favicon.ico">
 	</head>
 <body> 
-		<?php 
+		<?php  
 		session_start();
 		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 2 ){
 			header("Location: ../index.php");
