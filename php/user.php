@@ -21,17 +21,40 @@
 			<h1>Disqueria-T</h1>
 			<p>bienvenido <?php echo $_SESSION['email'];?> </p>
 		</div>
-		<div id="nav">
-			<div id="head"></div>
-			<div id="head-pip"></div>
-			<ul>
-				<li id="m1"><button class="btn" onclick="user.php">Ver usuario</button></li>
-				<li id="m2"><button class="btn" data-toggle= "modal" data-target="#registro">Ver Reporte</button></li>
-				<li id="m2"><button class="btn" data-toggle= "modal" data-target="#registro">Ver Lista</button></li>
-				<a href="cierra.php"><li id="m2"><button class="btn" >Salir</button></li></a>
-
-			</ul>
- 	         
+		<div id="fondolista">
+			 <?php
+            include("conexion.php");
+            $con=conectar();
+            $query = "SELECT * FROM usuario ";
+            $rs = mysqli_query($con,$query);
+    
+            ?>
+            
+           
+          
+              <table class="table table-bordered">
+                   <thead>
+                      <tr>
+                         <th>Nombre</th>
+                         <th>Correo</th>
+                         <th>Estado</th>
+                         <th>Acción</th>
+                      </tr>
+                   </thead>
+                    <?php while ($fila = mysqli_fetch_row($rs)){ 
+                    	?>
+                   <tbody> 
+                      <tr>
+                         <td><?php echo $fila['nombre']?></td>
+                         <td><?php echo $fila['email']?></td>
+                         <td class="error"><?php echo $fila['estado']?></td>
+                         <td><!--a href='php/activarUsuario.php?id=<?php  ?>'-->Activar</a></td>
+                      </tr>
+                      
+                      <?php }?>
+                   </tbody>
+                         </table>
+                </div>
 		
 	 <div id="body">
 			<div id="body-inner">
