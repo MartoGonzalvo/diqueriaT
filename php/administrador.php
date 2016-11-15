@@ -26,7 +26,7 @@
 			<div id="head-pip"></div>
 			<ul>
 				<li id="m1"><button class="btn"onclick = "location='user.php'">Ver usuario</button></li>
-				<li id="m2"><button class="btn" data-toggle= "modal" data-target="#registro">Ver Reporte</button></li>
+				<li id="m2"><button class="btn"onclick = "location='grafico.php'">Ver Reporte</button></li>
 				<li id="m2"><button class="btn" data-toggle= "modal" data-target="#registro">Ver Lista</button></li>
 				<li id="m2"><button class="btn" onclick = "location='cierra.php'">Salir</button></li></a>
 
