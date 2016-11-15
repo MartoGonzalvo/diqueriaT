@@ -25,7 +25,7 @@
 			 <?php
             include("conexion.php");
             $con=conectar();
-            $query = "SELECT * FROM usuario ";
+            $query = "SELECT * FROM usuario WHERE estado = 'activo'";
             $rs = mysqli_query($con,$query);
     
             ?>
@@ -41,19 +41,23 @@
                          <th>Acción</th>
                       </tr>
                    </thead>
-                    <?php while ($fila = mysqli_fetch_row($rs)){ 
+                    <?php while ($fila = mysqli_fetch_array($rs)){ 
                     	?>
                    <tbody> 
                       <tr>
                          <td><?php echo $fila['nombre']?></td>
                          <td><?php echo $fila['email']?></td>
                          <td class="error"><?php echo $fila['estado']?></td>
-                         <td><!--a href='php/activarUsuario.php?id=<?php  ?>'-->Activar</a></td>
-                      </tr>
+                         <td><a href='borrarUsuario.php?email=<?php echo $fila['email'] ?>'>Borrar</a></td>
+                      </tr>								
                       
                       <?php }?>
                    </tbody>
                          </table>
+
+                       <ul>
+                       <li id="m2"><button class="btns" onclick = "location='administrador.php'">Volver</button></li></a>
+                       </ul>
                 </div>
 		
 	 <div id="body">
