@@ -26,10 +26,16 @@ $cabeceras="mgonzalvo@conabip.gob.ar";
 
 
 	if($cont==$rcont){
+		$cont = md5($cont);
 		$query = "INSERT INTO usuario (id_usuario,nombre, apellido, email,contrasena,tiene_id_perfi, tiene_id_ubicacion, estado) VALUES (NULL, '".$nombre."', '".$apellido."', '".$email."','".$cont."', 2, 1,'activo')";
 
 		$rs = mysqli_query($con, $query);
+			
+			
+
 		mail($email, $titulo, $mensaje, $cabeceras);
+		
+
 		header("Location: ../index.php");
 
 		}else{
