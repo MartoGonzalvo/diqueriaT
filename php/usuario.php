@@ -25,18 +25,22 @@
 			<div id="head"></div>
 			<div id="head-pip"></div>
 			<ul>
-				<li id="m1"><button class="btn" >Crear lista</button></li>
-				<a href="cierra.php"><li id="m2"><button class="btn" >Salir</button></li></a>
-					
+				<li id="m1"><button class="btn"onclick = "location='playlist.php'" >Mi Lista</button></li>
+				<li id="m1"><button class="btn"onclick = "location='listacanciones.php'" >Buscar Temas</button></li>
+				<li id="m1"><button class="btn" >Buscar Usuario</button></li>
+				<li id="m2"><button class="btn" onclick = "location='cierra.php'">Salir</button></li>
+				</br>	
 			</ul>
- 	           <?php include("../includes/logueo.inc") ?>
- 	          <?php include("../includes/registro.inc") ?>
+ 	            <?php
+			      include("tablaPlaylist.php");
+			      ?>
 			<div id="search">
 				<h2>Busca por Genero</h2>
-				<form action="">
-					<input type="text" class="text" name="q" value="" id="q" /> <input type="submit" name="submit" value="Go &gt; &gt;" id="submit" class="submit" />
+				<form action="buscarlista.php" method="POST" name="busca" id="buscarlista">
+				
+					<input type="text" class="text" name="buscar" value=""  /> <input type="submit" name="submit" value="Go &gt; &gt;" id="submit" class="submit" />
 				</form>
-				<a href="#">Advanced Search</a> | <a href="#">Search Tips</a>
+				
 			</div>
 		</div>
 		
