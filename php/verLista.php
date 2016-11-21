@@ -26,11 +26,11 @@
 			 <?php
             include("conexion.php");
             $con=conectar();
-           	 $id=$_SESSION['id_usuario'];
-            $query = "SELECT p.id_playlist,p.estado,p.nombre
+           	 $id=$_GET['id_playlist'];
+            $query = "SELECT p.nombre, c.artista,c.genero,c.titulo,c.id_cancion
 						FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
 						INNER JOIN cancion as c on con.id_cancion=c.id_cancion
-						WHERE p.crea_id_usuario = '".$id."' GROUP BY p.id_playlist";
+						WHERE p.id_playlist = '".$id."' ";
             $rs = mysqli_query($con,$query);
     
             ?>
@@ -40,22 +40,28 @@
               <table class="table table-bordered">
                    <thead>
                       <tr>
-                         <th>Nombre de lista</th>
-                        
-                         <th>Estado</th>
+                         <th>Titulo</th>
+                         <th>Artista</th>
+                         <th>Genero</th>
                          <th>Accion</th>
-
                       </tr>
                    </thead>
                     <?php while ($fila = mysqli_fetch_array($rs)){ 
                     	?>
                    <tbody> 
                       <tr>
-                         <td><?php echo $fila['nombre']?></td>
-                         <td><?php echo $fila['estado']?></td>
-                         <td><a href='verLista.php?id_playlist=<?php echo $fila['id_playlist'] ?>'>Ver Lista</a></td>
-                      </tr>								
+                         <td><?php echo $fila['titulo']?></td>
+                         <td><?php echo $fila['artista']?></td>
+                         <td><?php echo $fila['genero']?></td>
+                         <td><a href='borrarCancion.php?id_cancion=<?php echo $fila['id_cancion']  ?>'>Borrar</a></td>
                       
+
+                      </tr>								
+                       
+                      	
+
+
+
                       <?php }?>
                    </tbody>
                          </table>

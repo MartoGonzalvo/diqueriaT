@@ -8,7 +8,7 @@
 	<link  href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="../images/favicon.ico">
 	</head>
-<body>  
+<body>   
 		<?php 
 		session_start();
 		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 2 ){
@@ -23,14 +23,10 @@
 			<p>bienvenido <?php echo $_SESSION['email'];?> </p>
 		</div>
 		<div id="fondolista">
-			 <?php
+			  <?php
             include("conexion.php");
             $con=conectar();
-           	 $id=$_SESSION['id_usuario'];
-            $query = "SELECT p.id_playlist,p.estado,p.nombre
-						FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
-						INNER JOIN cancion as c on con.id_cancion=c.id_cancion
-						WHERE p.crea_id_usuario = '".$id."' GROUP BY p.id_playlist";
+            $query = "SELECT * FROM usuario WHERE estado = 'activo'";
             $rs = mysqli_query($con,$query);
     
             ?>
@@ -40,11 +36,10 @@
               <table class="table table-bordered">
                    <thead>
                       <tr>
-                         <th>Nombre de lista</th>
-                        
-                         <th>Estado</th>
-                         <th>Accion</th>
-
+                         <th>Usuario</th>
+                         <th>Listas</th>
+                         
+                         <th>Agregar a amigos</th>
                       </tr>
                    </thead>
                     <?php while ($fila = mysqli_fetch_array($rs)){ 
@@ -52,8 +47,8 @@
                    <tbody> 
                       <tr>
                          <td><?php echo $fila['nombre']?></td>
-                         <td><?php echo $fila['estado']?></td>
-                         <td><a href='verLista.php?id_playlist=<?php echo $fila['id_playlist'] ?>'>Ver Lista</a></td>
+                         <td><?php echo $fila['apellido']?></td>
+                         <td><a href=''] >Agregar</a></td-->
                       </tr>								
                       
                       <?php }?>

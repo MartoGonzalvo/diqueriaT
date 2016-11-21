@@ -19,7 +19,7 @@
 	<div id="outer" >
 		<div id="wrapper" ><div id="header">
 			<h1>Disqueria-T</h1>
-			<p>Musica On Line Siempre </p>
+			<p><?php echo $_SESSION['email'];?></p>
 		</div>
 		<div id="nav">
 			<div id="head"></div>
@@ -27,13 +27,11 @@
 			<ul>
 				<li id="m1"><button class="btn"onclick = "location='playlist.php'" >Mi Lista</button></li>
 				<li id="m1"><button class="btn"onclick = "location='listacanciones.php'" >Buscar Temas</button></li>
-				<li id="m1"><button class="btn" >Buscar Usuario</button></li>
+				<li id="m1"><button class="btn"onclick = "location='listarUsuarios.php'" >Buscar Usuario</button></li>
 				<li id="m2"><button class="btn" onclick = "location='cierra.php'">Salir</button></li>
-				</br>	
+					
 			</ul>
- 	            <?php
-			      include("tablaPlaylist.php");
-			      ?>
+ 	            
 			<div id="search">
 				<h2>Busca por Genero</h2>
 				<form action="buscarlista.php" method="POST" name="busca" id="buscarlista">

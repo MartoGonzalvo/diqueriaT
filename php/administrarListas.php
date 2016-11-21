@@ -11,9 +11,8 @@
 <body>  
 		<?php 
 		session_start();
-		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 2 ){
+		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 1 ){
 			header("Location: ../index.php");
-			
 			exit;
 		}
 		?>
@@ -26,11 +25,9 @@
 			 <?php
             include("conexion.php");
             $con=conectar();
-           	 $id=$_SESSION['id_usuario'];
-            $query = "SELECT p.id_playlist,p.estado,p.nombre
+            $query = "SELECT  c.artista, p.nombre,c.titulo,p.estado  
 						FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
-						INNER JOIN cancion as c on con.id_cancion=c.id_cancion
-						WHERE p.crea_id_usuario = '".$id."' GROUP BY p.id_playlist";
+						INNER JOIN cancion as c on con.id_cancion=c.id_cancion ";
             $rs = mysqli_query($con,$query);
     
             ?>
@@ -40,20 +37,22 @@
               <table class="table table-bordered">
                    <thead>
                       <tr>
-                         <th>Nombre de lista</th>
-                        
-                         <th>Estado</th>
-                         <th>Accion</th>
-
+                         <th>Artista</th>
+                         <th>Titulo</th>
+                         <th>Lista</th>
+                         <th>estado</th>
                       </tr>
                    </thead>
                     <?php while ($fila = mysqli_fetch_array($rs)){ 
                     	?>
                    <tbody> 
                       <tr>
-                         <td><?php echo $fila['nombre']?></td>
-                         <td><?php echo $fila['estado']?></td>
-                         <td><a href='verLista.php?id_playlist=<?php echo $fila['id_playlist'] ?>'>Ver Lista</a></td>
+                         <td><?php echo $fila['artista']?></td>
+                         <td><?php echo $fila['titulo']?></td>
+                         <td class="error"><?php echo $fila['nombre']?></td>
+                         <td class="error"><?php echo $fila['estado']?></td>
+                         
+                         <!--td><a href='borrarUsuario.php?id_cancion=<?php //echo $fila[//'id_cancion'] ?>'>Borrar</a></td-->
                       </tr>								
                       
                       <?php }?>
@@ -61,7 +60,7 @@
                          </table>
 
                        <ul>
-                       <li id="m2"><button class="btns" onclick = "location='usuario.php'">Volver</button></li></a>
+                       <li id="m2"><button class="btns" onclick = "location='administrador.php'">Volver</button></li></a>
                        </ul>
                 </div>
 		

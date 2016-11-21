@@ -8,7 +8,7 @@
 	<link  href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="../images/favicon.ico">
 	</head>
-<body>  
+<body>   
 		<?php 
 		session_start();
 		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 2 ){
@@ -19,15 +19,14 @@
 	<div id="outer" >
 		<div id="wrapper" ><div id="header">
 			<h1>Disqueria-T</h1>
-			<p>bienvenido <?php echo $_SESSION['email'];?> </p>
+			<p> <?php echo $_SESSION['email'];?> </p>
 		</div>
 		<div id="fondolista">
 			 <?php
             include("conexion.php");
             $con=conectar();
-            $query = "SELECT  c.artista, p.nombre,c.titulo  
-						FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
-						INNER JOIN cancion as c on con.id_cancion=c.id_cancion";
+            $query = "SELECT  *
+						FROM cancion";
             $rs = mysqli_query($con,$query);
     
             ?>
@@ -39,8 +38,8 @@
                       <tr>
                          <th>Artista</th>
                          <th>Titulo</th>
-                         <th>Lista</th>
-                         <th>estado</th>
+                         <th>Genero</th>
+                         <th>Agregar a mi lista</th>
                       </tr>
                    </thead>
                     <?php while ($fila = mysqli_fetch_array($rs)){ 
@@ -49,19 +48,24 @@
                       <tr>
                          <td><?php echo $fila['artista']?></td>
                          <td><?php echo $fila['titulo']?></td>
-                         <td class="error"><?php echo $fila['nombre']?></td>
-                         <!--td><a href='borrarUsuario.php?id_cancion=<?php //echo $fila[//'id_cancion'] ?>'>Borrar</a></td-->
-                      </tr>								
+                         <td ><?php echo $fila['genero']?></td>
+                         <td><a href='agregarLista.php?id_cancion=<?php echo $fila['id_cancion'] ?>'>Cargar a mi lista</a></td>
+  									 
+                         
+                      	</tr>								
                       
                       <?php }?>
                    </tbody>
                          </table>
 
-                       <ul>
-                       <li id="m2"><button class="btns" onclick = "location='usuario.php'">Volver</button></li></a>
-                       </ul>
+                     
+                     <button class="btns" onclick = "location='usuario.php'">Volver</button></a>
+                     <button class="btns" data-toggle= "modal" data-target="#cargar">Cargar temas</button></a>
+					<?php include("../includes/cargar.inc") ?>
+		              
                 </div>
-		
+                
+ 	          	
 	 <div id="body">
 			<div id="body-inner">
 				
