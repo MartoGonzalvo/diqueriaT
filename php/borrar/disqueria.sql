@@ -1,20 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 3.5.1
+-- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2016 a las 20:35:12
--- Versión del servidor: 5.7.14
--- Versión de PHP: 5.6.25
+-- Servidor: localhost
+-- Tiempo de generación: 21-11-2016 a las 02:55:10
+-- Versión del servidor: 5.5.24-log
+-- Versión de PHP: 5.4.3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `disqueria`
@@ -26,12 +26,22 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `cancion`
 --
 
-CREATE TABLE `cancion` (
-  `id_cancion` int(2) NOT NULL,
+CREATE TABLE IF NOT EXISTS `cancion` (
+  `id_cancion` int(2) NOT NULL AUTO_INCREMENT,
   `artista` varchar(30) NOT NULL,
   `genero` varchar(20) NOT NULL,
-  `titulo` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `titulo` varchar(20) NOT NULL,
+  `ubicacion` varchar(60) NOT NULL,
+  PRIMARY KEY (`id_cancion`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Volcado de datos para la tabla `cancion`
+--
+
+INSERT INTO `cancion` (`id_cancion`, `artista`, `genero`, `titulo`, `ubicacion`) VALUES
+(5, 'Desconocido', 'Blues ', 'Berlin Blues', ''),
+(7, 'Los Cafres', 'Reggae', 'Esclava', '');
 
 -- --------------------------------------------------------
 
@@ -39,9 +49,11 @@ CREATE TABLE `cancion` (
 -- Estructura de tabla para la tabla `consulta`
 --
 
-CREATE TABLE `consulta` (
+CREATE TABLE IF NOT EXISTS `consulta` (
   `id` int(2) NOT NULL,
-  `id_playlist` int(2) NOT NULL
+  `id_playlist` int(2) NOT NULL,
+  KEY `id_playlist` (`id_playlist`),
+  KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -50,10 +62,22 @@ CREATE TABLE `consulta` (
 -- Estructura de tabla para la tabla `contiene`
 --
 
-CREATE TABLE `contiene` (
+CREATE TABLE IF NOT EXISTS `contiene` (
   `id_playlist` int(2) NOT NULL,
-  `id_cancion` int(2) NOT NULL
+  `id_cancion` int(2) NOT NULL,
+  KEY `id_playlist` (`id_playlist`,`id_cancion`),
+  KEY `id_cancion` (`id_cancion`),
+  KEY `id_playlist_2` (`id_playlist`),
+  KEY `id_cancion_2` (`id_cancion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `contiene`
+--
+
+INSERT INTO `contiene` (`id_playlist`, `id_cancion`) VALUES
+(1, 7),
+(1, 7);
 
 -- --------------------------------------------------------
 
@@ -61,10 +85,11 @@ CREATE TABLE `contiene` (
 -- Estructura de tabla para la tabla `perfil`
 --
 
-CREATE TABLE `perfil` (
-  `id_perfil` int(2) NOT NULL,
-  `descripcion` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `perfil` (
+  `id_perfil` int(2) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_perfil`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `perfil`
@@ -81,14 +106,24 @@ INSERT INTO `perfil` (`id_perfil`, `descripcion`) VALUES
 -- Estructura de tabla para la tabla `playlist`
 --
 
-CREATE TABLE `playlist` (
-  `id_playlist` int(2) NOT NULL,
+CREATE TABLE IF NOT EXISTS `playlist` (
+  `id_playlist` int(2) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) NOT NULL,
   `genero` varchar(20) NOT NULL,
   `foto` varchar(50) NOT NULL,
   `crea_id_usuario` int(2) NOT NULL,
-  `estado` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `estado` varchar(10) NOT NULL,
+  PRIMARY KEY (`id_playlist`),
+  KEY `crea_id_usuario` (`crea_id_usuario`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `playlist`
+--
+
+INSERT INTO `playlist` (`id_playlist`, `nombre`, `genero`, `foto`, `crea_id_usuario`, `estado`) VALUES
+(1, 'Rastamam live up', 'reggae', '', 9, 'publico'),
+(2, 'Skafrica', 'Ska', '', 16, 'privado');
 
 -- --------------------------------------------------------
 
@@ -96,10 +131,11 @@ CREATE TABLE `playlist` (
 -- Estructura de tabla para la tabla `ranking_votacion`
 --
 
-CREATE TABLE `ranking_votacion` (
-  `id_ranking` int(2) NOT NULL,
-  `puesto` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `ranking_votacion` (
+  `id_ranking` int(2) NOT NULL AUTO_INCREMENT,
+  `puesto` int(3) NOT NULL,
+  PRIMARY KEY (`id_ranking`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -107,10 +143,12 @@ CREATE TABLE `ranking_votacion` (
 -- Estructura de tabla para la tabla `relaciona_usuario`
 --
 
-CREATE TABLE `relaciona_usuario` (
+CREATE TABLE IF NOT EXISTS `relaciona_usuario` (
   `id_usuario` int(2) NOT NULL,
   `id_playlist` int(2) NOT NULL,
-  `opinion` varchar(40) NOT NULL
+  `opinion` varchar(40) NOT NULL,
+  KEY `id_usuario` (`id_usuario`,`id_playlist`),
+  KEY `id_playlist` (`id_playlist`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -119,13 +157,17 @@ CREATE TABLE `relaciona_usuario` (
 -- Estructura de tabla para la tabla `reporte`
 --
 
-CREATE TABLE `reporte` (
-  `id_reporte` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `reporte` (
+  `id_reporte` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` int(11) NOT NULL,
   `crea_usuario_id` int(2) NOT NULL,
   `tiene_playlist_id` int(2) NOT NULL,
-  `tiene_cancion_id` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `tiene_cancion_id` int(2) NOT NULL,
+  PRIMARY KEY (`id_reporte`),
+  KEY `crea_usuario_id` (`crea_usuario_id`,`tiene_playlist_id`,`tiene_cancion_id`),
+  KEY `tiene_playlist_id` (`tiene_playlist_id`),
+  KEY `tiene_cancion_id` (`tiene_cancion_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -133,10 +175,11 @@ CREATE TABLE `reporte` (
 -- Estructura de tabla para la tabla `ubicacion`
 --
 
-CREATE TABLE `ubicacion` (
-  `id` int(2) NOT NULL,
-  `cordenadas` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `ubicacion` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `cordenadas` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `ubicacion`
@@ -152,16 +195,19 @@ INSERT INTO `ubicacion` (`id`, `cordenadas`) VALUES
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `id_usuario` int(2) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id_usuario` int(2) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) NOT NULL,
   `apellido` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
   `contrasena` varchar(10) DEFAULT NULL,
   `estado` varchar(20) NOT NULL,
   `tiene_id_perfi` int(2) NOT NULL,
-  `tiene_id_ubicacion` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `tiene_id_ubicacion` int(2) NOT NULL,
+  PRIMARY KEY (`id_usuario`),
+  KEY `tiene_id_perfi` (`tiene_id_perfi`),
+  KEY `tiene_id_ubicacion` (`tiene_id_ubicacion`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -169,123 +215,16 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido`, `email`, `contrasena`, `estado`, `tiene_id_perfi`, `tiene_id_ubicacion`) VALUES
 (3, 'martin', 'gonzalvo', 'martin@gmail.com', 'capo', 'activo', 1, 1),
-(4, 'maximiliano', 'avendaño', 'maxi@gmail.com', 'maxi', 'activo', 2, 2),
+(4, 'maximiliano', 'avendaño', 'maxi@gmail.com', 'maxi', 'borrado', 2, 2),
 (9, 'Roberto', 'Marley', 'bob@gmail.com', 'bob', 'borrado', 2, 1),
 (10, 'Hibbert', 'Toot', 'hibbert@gmail.com', 'toot', 'activo', 2, 1),
-(11, 'Luis', 'Spinetta', 'luis@gmail.com', 'luis', 'activo', 2, 1);
+(11, 'Luis', 'Spinetta', 'luis@gmail.com', 'luis', 'borrado', 2, 1),
+(12, 'Elwod', 'Blues', 'elwood@gmail.com', 'blues', 'activo', 2, 1),
+(14, 'Atahualpa', 'Yupanqui', 'atahualpa@gmail.com', '180b2f0ca7', 'activo', 2, 1),
+(16, 'Carlos', 'Garcia', 'charly@gmail.com', '49878439e7', 'activo', 2, 1),
+(17, 'Manuel', 'Serrat', 'manuel@gmail.com', 'f13bb1bed0', 'borrado', 2, 1),
+(18, 'Martin', 'Gonzalvo', 'gonzalvomartin@gmail.com', '7a9470ecb8', 'activo', 2, 1);
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `cancion`
---
-ALTER TABLE `cancion`
-  ADD PRIMARY KEY (`id_cancion`);
-
---
--- Indices de la tabla `consulta`
---
-ALTER TABLE `consulta`
-  ADD KEY `id_playlist` (`id_playlist`),
-  ADD KEY `id` (`id`);
-
---
--- Indices de la tabla `contiene`
---
-ALTER TABLE `contiene`
-  ADD KEY `id_playlist` (`id_playlist`,`id_cancion`),
-  ADD KEY `id_cancion` (`id_cancion`);
-
---
--- Indices de la tabla `perfil`
---
-ALTER TABLE `perfil`
-  ADD PRIMARY KEY (`id_perfil`);
-
---
--- Indices de la tabla `playlist`
---
-ALTER TABLE `playlist`
-  ADD PRIMARY KEY (`id_playlist`),
-  ADD KEY `crea_id_usuario` (`crea_id_usuario`);
-
---
--- Indices de la tabla `ranking_votacion`
---
-ALTER TABLE `ranking_votacion`
-  ADD PRIMARY KEY (`id_ranking`);
-
---
--- Indices de la tabla `relaciona_usuario`
---
-ALTER TABLE `relaciona_usuario`
-  ADD KEY `id_usuario` (`id_usuario`,`id_playlist`),
-  ADD KEY `id_playlist` (`id_playlist`);
-
---
--- Indices de la tabla `reporte`
---
-ALTER TABLE `reporte`
-  ADD PRIMARY KEY (`id_reporte`),
-  ADD KEY `crea_usuario_id` (`crea_usuario_id`,`tiene_playlist_id`,`tiene_cancion_id`),
-  ADD KEY `tiene_playlist_id` (`tiene_playlist_id`),
-  ADD KEY `tiene_cancion_id` (`tiene_cancion_id`);
-
---
--- Indices de la tabla `ubicacion`
---
-ALTER TABLE `ubicacion`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id_usuario`),
-  ADD KEY `tiene_id_perfi` (`tiene_id_perfi`),
-  ADD KEY `tiene_id_ubicacion` (`tiene_id_ubicacion`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `cancion`
---
-ALTER TABLE `cancion`
-  MODIFY `id_cancion` int(2) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `perfil`
---
-ALTER TABLE `perfil`
-  MODIFY `id_perfil` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT de la tabla `playlist`
---
-ALTER TABLE `playlist`
-  MODIFY `id_playlist` int(2) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `ranking_votacion`
---
-ALTER TABLE `ranking_votacion`
-  MODIFY `id_ranking` int(2) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `reporte`
---
-ALTER TABLE `reporte`
-  MODIFY `id_reporte` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `ubicacion`
---
-ALTER TABLE `ubicacion`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Restricciones para tablas volcadas
 --
