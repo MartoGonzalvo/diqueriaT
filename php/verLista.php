@@ -11,7 +11,7 @@
 <body>  
 		<?php 
 		session_start();
-		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 2 ){
+		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 2){
 			header("Location: ../index.php");
 			
 			exit;

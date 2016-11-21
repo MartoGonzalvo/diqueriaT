@@ -25,12 +25,12 @@
 			 <?php
             include("conexion.php");
             $con=conectar();
-            $query = "SELECT  c.artista, p.nombre,c.titulo,p.estado  
+            $query = "SELECT DISTINCT c.artista, p.nombre,c.titulo,p.estado,p.id_playlist  
 						FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
-						INNER JOIN cancion as c on con.id_cancion=c.id_cancion ";
+						INNER JOIN cancion as c on con.id_cancion=c.id_cancion  ";
             $rs = mysqli_query($con,$query);
     
-            ?>
+            ?> 
             
            
           
@@ -40,7 +40,8 @@
                          <th>Artista</th>
                          <th>Titulo</th>
                          <th>Lista</th>
-                         <th>estado</th>
+                         <th>Estado</th>
+                         <th>Ver Lista</th>
                       </tr>
                    </thead>
                     <?php while ($fila = mysqli_fetch_array($rs)){ 
@@ -51,7 +52,7 @@
                          <td><?php echo $fila['titulo']?></td>
                          <td class="error"><?php echo $fila['nombre']?></td>
                          <td class="error"><?php echo $fila['estado']?></td>
-                         
+                         <td><a href='verListaAdministrador.php?id_playlist=<?php echo $fila['id_playlist'] ?>'>Ver Lista</a></td>
                          <!--td><a href='borrarUsuario.php?id_cancion=<?php //echo $fila[//'id_cancion'] ?>'>Borrar</a></td-->
                       </tr>								
                       

@@ -130,3 +130,9 @@ color: #222; /* Color de la canción activa al pasar el cursor */
 background-color: white;
 
 }
+.imagenqr{
+	position:absolute;
+	height: 80px;
+   	width:80px;
+	align-items: 0center;
+}
