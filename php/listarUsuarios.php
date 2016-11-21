@@ -38,8 +38,8 @@
                       <tr>
                          <th>Usuario</th>
                          <th>Listas</th>
+                          <th>Agregar a amigos</th>
                          
-                         <th>Agregar a amigos</th>
                       </tr>
                    </thead>
                     <?php while ($fila = mysqli_fetch_array($rs)){ 
@@ -48,7 +48,9 @@
                       <tr>
                          <td><?php echo $fila['nombre']?></td>
                          <td><?php echo $fila['apellido']?></td>
-                         <td><a href=''] >Agregar</a></td-->
+		                 <td><a href='agregarUsuario.php?id_usuario=<?php echo $fila['id_usuario'] ?>'>Agregar</a></td>
+                     	 
+                     	     
                       </tr>								
                       
                       <?php }?>
