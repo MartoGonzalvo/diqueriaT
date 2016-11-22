@@ -44,5 +44,7 @@
     $p1->ExplodeAll();
  
     $graph->Add($p1);
-    $graph->Stroke(); 
+    @unlink("imagen1.png");
+    $graph->Stroke("imagen1.png");
+    //$graph->Stroke(' imagen.jpg'); 
   ?>

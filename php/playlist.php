@@ -54,17 +54,24 @@
                          <td><?php echo $fila['nombre']?></td>
                          <td><?php echo $fila['estado']?></td>
                          <td><a href='verLista.php?id_playlist=<?php echo $fila['id_playlist'] ?>'>Ver Lista</a></td>
+
                       </tr>								
                       
                       <?php }?>
                    </tbody>
                          </table>
 
-                       <ul>
-                       <li id="m2"><button class="btns" onclick = "location='usuario.php'">Volver</button></li></a>
-                       </ul>
-                </div>
-		
+                       
+                     
+                    <button class="btns" onclick = "location='usuario.php'">Volver</button></a>
+                    <button class="btns" data-toggle= "modal" data-target="#crea">Crear Lista</button></a>
+					<?php include("../includes/crealista.inc") ?>
+		            <button class="btns" data-toggle= "modal" data-target="#cargar">Cargar temas</button></a>
+					<?php include("../includes/cargar.inc") ?>
+		              
+
+                       
+                </div>		
 	 <div id="body">
 			<div id="body-inner">
 				

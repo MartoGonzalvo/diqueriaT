@@ -24,18 +24,18 @@
 			<p>bienvenido <?php echo $_SESSION['email'];?> </p>
 		</div>
 		<div id="fondolista">
-			
-            
-           <img src="prueba2.php" />
-          
+			   <li id="m2"><button class="btns" onclick = "location='descargarPdf.php'">Exportar</button></li></a>       
+            <?PHP include('prueba2.php'); ?> 
+           <img src="imagen1.png"></img>
+           
               
                    
-                       <li id="m2"><button class="btns" onclick = "location='administrador.php'">Volver</button></li></a>
                        
+             
                
                 </div>
 
-		
+		<li id="m2"><button class="btns" onclick = "location='administrador.php'">Volver</button></li></a>
 	 <div id="body">
 			<div id="body-inner">
 				

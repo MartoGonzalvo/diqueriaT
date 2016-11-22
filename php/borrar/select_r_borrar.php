@@ -1,6 +1,6 @@
  <?php
 									
-include("conexion.php");
+include("../conexion.php");
 $con=conectar();
 $query='select * from playlist';
 $resultado_consulta_mysql=mysqli_query($con,$query);
