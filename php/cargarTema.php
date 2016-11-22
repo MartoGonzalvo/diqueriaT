@@ -8,70 +8,67 @@
 	<link  href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="../images/favicon.ico">
 	</head>
-<body>  
+<body>   
 		<?php 
 		session_start();
-		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 2){
+		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 2 ){
 			header("Location: ../index.php");
-			
 			exit;
 		}
 		?>
 	<div id="outer" >
 		<div id="wrapper" ><div id="header">
 			<h1>Disqueria-T</h1>
-			<p>bienvenido <?php echo $_SESSION['email'];?> </p>
+			<p> <?php echo $_SESSION['email'];?> </p>
 		</div>
 		<div id="fondolista">
 			 <?php
             include("conexion.php");
             $con=conectar();
-           	$id=$_GET['id_playlist'];
-            $query = "SELECT p.nombre, c.artista,c.genero,c.titulo,c.id_cancion
-						FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
-						INNER JOIN cancion as c on con.id_cancion=c.id_cancion
-						WHERE p.id_playlist = '".$id."' ";
+            $query = "SELECT  *
+						FROM cancion";
             $rs = mysqli_query($con,$query);
-    
+    		
             ?>
+            
+            
+            
             
            
           
               <table class="table table-bordered">
                    <thead>
                       <tr>
-                         <th>Titulo</th>
                          <th>Artista</th>
+                         <th>Titulo</th>
                          <th>Genero</th>
-                         <th>Accion</th>
+                         <th>Agregar a mi lista</th>
                       </tr>
                    </thead>
                     <?php while ($fila = mysqli_fetch_array($rs)){ 
                     	?>
                    <tbody> 
                       <tr>
-                         <td><?php echo $fila['titulo']?></td>
                          <td><?php echo $fila['artista']?></td>
-                         <td><?php echo $fila['genero']?></td>
-                         <td><a href='borrarCancion.php?id_cancion=<?php echo $fila['id_cancion']  ?>'>Borrar</a></td>
+                         <td><?php echo $fila['titulo']?></td>
+                         <td ><?php echo $fila['genero']?></td>
+                         <td><a href='agregarLista.php?id_cancion=<?php echo $fila['id_cancion'] ?>'>Cargar a mi lista</a></td>
+  									 
+                         
+                      	</tr>								
                       
-
-                      </tr>								
-                       
-                      	
-
-
-
                       <?php }?>
                    </tbody>
                          </table>
 
-                       
-                       <button class="btns" onclick = "location='usuario.php'">Volver</button>
-                       <button class="btns"onclick = "location.href='cargarTema.php?id=<?PHP echo $id?>'" >Buscar Temas</button>
-                       
+                     
+                     <button class="btns" onclick = "location='usuario.php'">Volver</button></a>
+                     <button class="btns" data-toggle= "modal" data-target="#cargar">Cargar temas</button></a>
+					<?php include("../includes/cargar.inc") ?>
+		              
                 </div>
-		
+                
+ 	          	
 	 <div id="body">
 			<div id="body-inner">
 				

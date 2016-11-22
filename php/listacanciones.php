@@ -49,7 +49,7 @@
                          <td><?php echo $fila['artista']?></td>
                          <td><?php echo $fila['titulo']?></td>
                          <td ><?php echo $fila['genero']?></td>
-                         <td><a href='agregarLista.php?id_cancion=<?php echo $fila['id_cancion'] ?>'>Cargar a mi lista</a></td>
+                         <td><a href='playlistUsuario.php '>Cargar a mi lista</a></td>
   									 
                          
                       	</tr>								

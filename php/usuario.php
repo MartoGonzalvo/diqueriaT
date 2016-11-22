@@ -25,7 +25,7 @@
 			<div id="head"></div>
 			<div id="head-pip"></div>
 			<ul>
-				<li id="m1"><button class="btn"onclick = "location='playlist.php'" >Mi Lista</button></li>
+				<li id="m1"><button class="btn"onclick = "location='playlistUsuario.php'" >Mi Lista</button></li>
 				<li id="m1"><button class="btn"onclick = "location='listacanciones.php'" >Buscar Temas</button></li>
 				<li id="m1"><button class="btn"onclick = "location='listarUsuarios.php'" >Buscar Usuario</button></li>
 				<li id="m2"><button class="btn" onclick = "location='cierra.php'">Salir</button></li>
