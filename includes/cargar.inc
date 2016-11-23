@@ -4,7 +4,7 @@
 	<div class="modal-header">	
 	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
 	<t2>Subi un tema y completa los datos!!</t2>
-	<form action="../includes/cargarTema.php" method="POST" name="adsearch" id="register" enctype="multipart/form-data"> 
+	<form action="../includes/cargarTema2.php" method="POST" name="adsearch" id="register" enctype="multipart/form-data"> 
          <div class="alert-box success form-feedback"></div>
           <div class="register-top-grid">
 		  
@@ -16,7 +16,7 @@
 
 
 
-		    <input name="archivo" type="file" required="required"/>
+		    <input name="foto" type="file" required="required"/>
 						
 
 

@@ -64,8 +64,7 @@
                     <button class="btns" onclick = "location='usuario.php'">Volver</button></a>
                     <button class="btns" data-toggle= "modal" data-target="#crea">Crear Lista</button></a>
 					<?php include("../includes/crealista.inc") ?>
-		            <button class="btns" data-toggle= "modal" data-target="#cargar">Cargar temas</button></a>
-					<?php include("../includes/cargar.inc") ?>
+		          
 		              
 
                        

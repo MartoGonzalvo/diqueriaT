@@ -6,7 +6,7 @@
 							<form action="php/validar.php" method="POST" name="adsearch" id="register"> 
           							<div class="alert-box success form-feedback"></div>
                  					<div class="register-top-grid">
-					                    <label for="name"class="col-lg-2 control-label">Email</label> <input name="email" id="email" type="email" required="required" /></br>
+					                    <label for="name"class="col-lg-2 control-label">Email</label> <input name="email"  autofocus  id="email" type="email" required="required"/></br>
 					                    <label for="surname"class="col-lg-2 control-label">Contrase&ntilde;a</label> <input name="pass" type="password" required="required" /></br>
 								      <button name="registrar" id="loguear" class="btn btn-primary">Loguear</button>
 							</form>

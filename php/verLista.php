@@ -53,7 +53,7 @@
                          <td><?php echo $fila['titulo']?></td>
                          <td><?php echo $fila['artista']?></td>
                          <td><?php echo $fila['genero']?></td>
-                         <td><a href='borrarCancion.php?id_cancion=<?php echo $fila['id_cancion']  ?>'>Borrar</a></td>
+    <td><a href='borrarCancion.php?id_cancion=<?php echo $fila['id_cancion']  ?> & id_playlist=<?php echo $id  ?>'>Borrar</a></td>
                       
 
                       </tr>								
@@ -66,8 +66,8 @@
                    </tbody>
                          </table>
 
-                       
-                       <button class="btns" onclick = "location='usuario.php'">Volver</button>
+                       <button class="btns" onclick = "location='playlistUsuario.php'">Volver</button>
+                       <button class="btns" onclick = "location='usuario.php'">Volver a usuario</button>
                        <button class="btns"onclick = "location.href='cargarTema.php?id=<?PHP echo $id?>'" >Buscar Temas</button>
                        
                 </div>
