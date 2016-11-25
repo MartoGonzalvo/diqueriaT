@@ -26,12 +26,12 @@
 			 <?php
             include("conexion.php");
             $con=conectar();
-           	$id=$_GET['id_playlist'];
+           	include("funcionAmigos.php");
            	
             $query = "SELECT p.nombre, c.artista,c.genero,c.titulo,c.id_cancion
 						FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
 						INNER JOIN cancion as c on con.id_cancion=c.id_cancion
-						WHERE p.id_playlist = '".$id."' ";
+						WHERE p.id_playlist = '9' ";
             $rs = mysqli_query($con,$query);
     
             ?>

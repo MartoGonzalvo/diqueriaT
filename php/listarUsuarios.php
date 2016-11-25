@@ -39,6 +39,8 @@
                          <th>Usuario</th>
                          <th>Listas</th>
                           <th>Agregar a amigos</th>
+                          <th>Ver Lista</th>
+                          <th>Foto</th>
                          
                       </tr>
                    </thead>
@@ -48,9 +50,9 @@
                       <tr>
                          <td><?php echo $fila['nombre']?></td>
                          <td><?php echo $fila['apellido']?></td>
-		                 <td><a href='agregarUsuario.php?id_usuario=<?php echo $fila['id_usuario'] ?>'>Agregar</a></td>
-                     	 
-                     	     
+                         <td><a href='verListaUsuario.php?id_usuario=<?php echo $fila['id_usuario'] ?>'>Ver Listas</a></td>
+                         <td><a href='agregarUsuario.php?id_usuario=<?php echo $fila['id_usuario'] ?>'>Agregar</a></td>
+                     	 <td ><img height="50px" src="../images/perfil/<?php echo $fila['ubicacion']?>" /></td>  
                       </tr>								
                       
                       <?php }?>

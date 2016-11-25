@@ -27,7 +27,7 @@
 			<ul>
 				<li id="m1"><button class="btn"onclick = "location='playlistUsuario.php'" >Mi Lista</button></li>
 				<li id="m1"><button class="btn"onclick = "location='listacanciones.php'" >Buscar Temas</button></li>
-				<li id="m1"><button class="btn"onclick = "location='listarUsuarios.php'" >Buscar Usuario</button></li>
+				<li id="m1"><button class="btn"onclick = "location='listarUsuarios.php'" >Otros Usuarios</button></li>
 				<li id="m2"><button class="btn" onclick = "location='cierra.php'">Salir</button></li>
 					
 			</ul>
