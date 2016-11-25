@@ -38,6 +38,7 @@
                          <th>Nombre</th>
                          <th>Correo</th>
                          <th>Estado</th>
+                         <th>Perfil</th>
                          <th>Acción</th>
                       </tr>
                    </thead>
@@ -48,6 +49,7 @@
                          <td><?php echo $fila['nombre']?></td>
                          <td><?php echo $fila['email']?></td>
                          <td class="error"><?php echo $fila['estado']?></td>
+                          <td ><img height="50px" src="../images/perfil/<?php echo $fila['ubicacion']?>" /></td>  
                          <td><a href='borrarUsuario.php?email=<?php echo $fila['email'] ?>'>Borrar</a></td>
                       </tr>								
                       

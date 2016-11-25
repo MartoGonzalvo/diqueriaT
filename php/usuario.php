@@ -18,6 +18,8 @@
 		?>
 	<div id="outer" >
 		<div id="wrapper" ><div id="header">
+		<?php	include(consultaUsuario.php); ?>
+			<img height="50px" 	align="right" vspace="15" hspace="12" src="../images/perfil/<?php echo $fila?>" ></img>
 			<h1>Disqueria-T</h1>
 			<p><?php echo $_SESSION['email'];?></p>
 		</div>
