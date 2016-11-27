@@ -8,7 +8,7 @@
 	<link  href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="images/favicon.ico">
 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script>
 		function cargar(div , desde)
 		{
@@ -60,20 +60,37 @@
 					<div class="box">
 						<div class="margin">
 							<div id="cambio">
+								 <?php
+										  include("php/conexion.php");
+           									 $con=conectar();
+										 $query = "SELECT p.nombre, c.artista,c.genero,c.titulo,c.id_cancion,p.foto,c.ubicacion
+										 												FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
+										 												INNER JOIN cancion as c on con.id_cancion=c.id_cancion
+										 												WHERE p.id_playlist = '98' ";
+            								$rs = mysqli_query($con,$query);
+            								$rs2 = mysqli_query($con,$query);
+            								 while ($coso = mysqli_fetch_array($rs)){ 
+										 $nombre = $coso['nombre'];
+										 $foto=$coso['foto'];
+														 }
+
+										  
+                    					?>
 										<div id="player">
-												<p style="font-size: 12pt; color: red"> Reggae</p>
+												<p style="font-size: 12pt; color: red"> <?php echo $nombre; ?> </p>
+												<img height="50px" 	align="right" vspace="5" hspace="25" src="images/playlist/<?php echo $foto; ?>" ></img>
 										<audio controls="" id="audio" preload="auto" tabindex="0" type="audio/mpeg">
 
-										<source src="mp3/reggae/Do it twice.mp3" type="audio/mp3">
+										<source src="" type="audio/mp3">
 										        Hola, tu navegador no está actualizado y no puede mostrar este contenido.
 										    </audio>
 										</div>
 										<ul id="playlist">
-										<li class="active"><a href="mp3/reggae/Do it twice.mp3">Do it twice</a></li>
-										<li><a href="mp3/reggae/Leva a vibrasao.mp3">Leva vibrasao</a></li>
-										<li><a href="mp3/reggae/esclava.mp3">Esclava</a></li>
-										<li><a href="mp3/reggae/este es mi arte.mp3">Este es mi arte</a></li>
-										<li><a href="mp3/reggae/dreadlocks.mp3">Dreadlocks</a></li>
+										<?php while ($fila = mysqli_fetch_array($rs2)){ ?>
+										
+										<li class="active"><a href="mp3/<?php  echo $fila['ubicacion']; ?>"><?php echo $fila['titulo']?></a></li>
+										
+										<?php }?>
 										
 										</ul>
 										<script src="js/java.js"></script>

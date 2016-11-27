@@ -15,7 +15,7 @@
 			header("Location: ../index.php");
 			
 			exit;
-		}
+		} 
 		?>
 	<div id="outer" >
 		<div id="wrapper" ><div id="header">
@@ -30,7 +30,7 @@
             $query = "SELECT *
 						FROM playlist WHERE  crea_id_usuario = '".$id."'";
             $rs = mysqli_query($con,$query);
-    
+    		
             ?>
             
            
@@ -42,6 +42,7 @@
                         
                          <th>Estado</th>
                          <th>Accion</th>
+                         <th>Foto</th>
 
                       </tr>
                    </thead>
@@ -51,7 +52,9 @@
                       <tr>
                          <td><?php echo $fila['nombre']?></td>
                          <td><?php echo $fila['estado']?></td>
-                         <td><a href='verLista.php?id_playlist=<?php echo $fila['id_playlist'] ?>'>Ver Lista</a></td>
+                         <td><a href='verLista.php?id_playlist=<?php echo $fila['id_playlist'] ?> & foto=<?php echo $fila['foto']  ?>' >Ver Lista</a></td>
+                        <td ><img height="50px" src="../images/playlist/<?php echo $fila['foto']?>" /></td>  
+
 
                       </tr>								
                       
@@ -61,12 +64,11 @@
 
                        
                      
-                    <button class="btns" onclick = "location='usuario.php'">Volver</button></a>
-                    <button class="btns" data-toggle= "modal" data-target="#crea">Crear Lista</button></a>
+                    <button class="btns" onclick = "location='usuario.php'">Volver</button>
+                    <button class="btns" data-toggle= "modal" data-target="#crea">Crear Lista</button>
 					<?php include("../includes/crealista.inc") ?>
-		            <button  data-toggle= "modal" data-target="#cargar"></button></a>
+		             <button class="btns" data-toggle= "modal" data-target="#cargar">Cargar temas</button></a>
 					<?php include("../includes/cargar.inc") ?>
-					
 		              		              
 
                        

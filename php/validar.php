@@ -19,6 +19,7 @@ session_start();
 			$_SESSION["email"] = $fila['email'] ;
 			$_SESSION["rol"] = $fila['tiene_id_perfi'];
 			$_SESSION["id_usuario"]=$fila['id_usuario'];
+			$_SESSION["ubicacion"]=$fila["ubicacion"];
 					if($fila["tiene_id_perfi"]=="1"){
 						
 						header("Location: administrador.php");

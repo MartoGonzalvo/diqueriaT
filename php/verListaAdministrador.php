@@ -45,7 +45,7 @@
                          <th>Titulo</th>
                          <th>Artista</th>
                          <th>Genero</th>
-                         <th>Usuario</th>
+                         
                       </tr>
                    </thead>
                     <?php while ($fila = mysqli_fetch_array($rs)){ 
@@ -70,7 +70,7 @@
                          </table>
 
                        <ul>
-                       <li id="m2"><button class="btns" onclick = "location='administrador.php'">Volver</button></li></a>
+                       <li id="m2"><button class="btns" onclick = "location='administrarListas.php'">Volver</button></li></a>
                        </ul>
                 </div>
 		

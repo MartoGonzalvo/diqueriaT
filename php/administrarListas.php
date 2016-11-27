@@ -25,9 +25,8 @@
 			 <?php
             include("conexion.php");
             $con=conectar();
-            $query = "SELECT DISTINCT c.artista, p.nombre,c.titulo,p.estado,p.id_playlist  
-						FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
-						INNER JOIN cancion as c on con.id_cancion=c.id_cancion  ";
+            $query = "SELECT *  
+						FROM playlist   ";
             $rs = mysqli_query($con,$query);
     
             ?> 
@@ -37,22 +36,25 @@
               <table class="table table-bordered">
                    <thead>
                       <tr>
-                         <th>Artista</th>
-                         <th>Titulo</th>
-                         <th>Lista</th>
-                         <th>Estado</th>
-                         <th>Ver Lista</th>
+                         <th>Nombre</th>
+                         <th>Genero</th>
+                         <th>Foto</th>
+                         <th>Comentario</th>>
+                         <th>Accion </th>
                       </tr>
                    </thead>
                     <?php while ($fila = mysqli_fetch_array($rs)){ 
                     	?>
                    <tbody> 
                       <tr>
-                         <td><?php echo $fila['artista']?></td>
-                         <td><?php echo $fila['titulo']?></td>
-                         <td class="error"><?php echo $fila['nombre']?></td>
-                         <td class="error"><?php echo $fila['estado']?></td>
-                         <td><a href='verListaAdministrador.php?id_playlist=<?php echo $fila['id_playlist'] ?>'>Ver Lista</a></td>
+                         <td><?php echo $fila['nombre']?></td>
+                         <td><?php echo $fila['genero']?></td>
+                         <td ><img height="50px" src="../images/perfil/<?php echo $fila['foto']?>" /></td>  
+                          <td><?php echo $fila['comentario']?></td>
+                         
+                         <td><a href='verListaAdministrador.php?id_playlist=<?php echo $fila['id_playlist'] ?>'><button>Ver Lista</button></a>
+                         
+                      <a href='borrarLista.php?id_playlist=<?php echo $fila['id_playlist']  ?> '><button>Borrar Lista</button></a></td>
                          <!--td><a href='borrarUsuario.php?id_cancion=<?php //echo $fila[//'id_cancion'] ?>'>Borrar</a></td-->
                       </tr>								
                       
@@ -61,8 +63,7 @@
                          </table>
 
                        <ul>
-                       <li id="m2"><button class="btns" onclick = "location='administrador.php'">Volver</button></li></a>
-                       </ul>
+                       <button class="btns" onclick = "location='administrador.php'">Volver</button>
                 </div>
 		
 	 <div id="body">

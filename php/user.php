@@ -25,7 +25,7 @@
 			 <?php
             include("conexion.php");
             $con=conectar();
-            $query = "SELECT * FROM usuario WHERE estado = 'activo'";
+            $query = "SELECT * FROM usuario "; 
             $rs = mysqli_query($con,$query);
     
             ?>
@@ -36,10 +36,13 @@
                    <thead>
                       <tr>
                          <th>Nombre</th>
+                         <th>Apellido</th>
                          <th>Correo</th>
                          <th>Estado</th>
                          <th>Perfil</th>
+                         <th>Comentario</th>
                          <th>Acción</th>
+
                       </tr>
                    </thead>
                     <?php while ($fila = mysqli_fetch_array($rs)){ 
@@ -47,10 +50,13 @@
                    <tbody> 
                       <tr>
                          <td><?php echo $fila['nombre']?></td>
+                         <td><?php echo $fila['apellido']?></td>
                          <td><?php echo $fila['email']?></td>
                          <td class="error"><?php echo $fila['estado']?></td>
                           <td ><img height="50px" src="../images/perfil/<?php echo $fila['ubicacion']?>" /></td>  
-                         <td><a href='borrarUsuario.php?email=<?php echo $fila['email'] ?>'>Borrar</a></td>
+                          <td><?php echo $fila['comentario']?></td>
+                        <td><a href='borrarUsuario.php?email=<?php echo $fila['email'] ?>'><button>Borrar</button>
+                        <a href='activarUsuario.php?email=<?php echo $fila['email'] ?>'><button>Activar</button></a></td>
                       </tr>								
                       
                       <?php }?>

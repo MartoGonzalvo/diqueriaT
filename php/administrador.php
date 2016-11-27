@@ -8,7 +8,7 @@
 	<link  href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="../images/favicon.ico">
 	</head>
-<body>  
+<body>   
 		<?php 
 		session_start();
 		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 1 ){
@@ -18,6 +18,7 @@
 		?>
 	<div id="outer" >
 		<div id="wrapper" ><div id="header">
+			<img height="50px" 	align="right" vspace="15" hspace="25" src="../images/perfil/<?php echo $_SESSION['ubicacion'];?>" ></img>
 			<h1>Disqueria-T</h1>
 			<p>bienvenido <?php echo $_SESSION['email'];?> </p>
 		</div>
@@ -26,7 +27,7 @@
 			<div id="head-pip"></div>
 			<ul>
 				<li id="m1"><button class="btn"onclick = "location='user.php'">Ver usuario</button></li>
-				<li id="m2"><button class="btn"onclick = "location='grafico.php'">Ver Reporte</button></li>
+				<li id="m2"><button class="btn"onclick = "location='graficoUsuarios.php'">Ver Reporte</button></li>
 				<li id="m2"><button class="btn" onclick = "location='administrarListas.php'">Ver Lista</button></li>
 				<li id="m2"><button class="btn" onclick = "location='cierra.php'">Salir</button></li></a>
 

@@ -16,27 +16,27 @@
 			
 			exit;
 		}
-		?>
+		    include("conexion.php");
+            $con=conectar();
+           	$id=$_GET['id_playlist'];
+           	
+        
+            ?>
+            
 	<div id="outer" >
 		<div id="wrapper" ><div id="header">
+		
 			<h1>Disqueria-T</h1>
 			<p>bienvenido <?php echo $_SESSION['email'];?> </p>
 		</div>
 		<div id="fondolista">
-			 <?php
-            include("conexion.php");
-            $con=conectar();
-           	$id=$_GET['id_playlist'];
-           	
-            $query = "SELECT p.nombre, c.artista,c.genero,c.titulo,c.id_cancion
+			 
+           <?php
+             $query = "SELECT p.nombre, c.artista,c.genero,c.titulo,c.id_cancion,p.foto
 						FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
 						INNER JOIN cancion as c on con.id_cancion=c.id_cancion
 						WHERE p.id_playlist = '".$id."' ";
-            $rs = mysqli_query($con,$query);
-    
-            ?>
-            
-           
+            $rs = mysqli_query($con,$query); ?>
           
               <table class="table table-bordered">
                    <thead>
@@ -54,7 +54,7 @@
                          <td><?php echo $fila['titulo']?></td>
                          <td><?php echo $fila['artista']?></td>
                          <td><?php echo $fila['genero']?></td>
-    <td><a href='borrarCancion.php?id_cancion=<?php echo $fila['id_cancion']  ?> & id_playlist=<?php echo $id  ?>'>Borrar</a></td>
+    <td><a href='borrarCancion.php?id_cancion=<?php echo $fila['id_cancion']  ?> & id_playlist=<?php echo $id  ?>  '>Borrar</a></td>
                       
 
                       </tr>								

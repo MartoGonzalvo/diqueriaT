@@ -41,6 +41,7 @@
                           <th>Agregar a amigos</th>
                           <th>Ver Lista</th>
                           <th>Foto</th>
+                          <th>Comentario</th>
                          
                       </tr>
                    </thead>

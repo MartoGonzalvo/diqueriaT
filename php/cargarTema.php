@@ -25,8 +25,7 @@
 			 <?php
             include("conexion.php");
             $con=conectar();
-            $query = "SELECT  *
-						FROM cancion";
+            $query = "SELECT  *	FROM cancion";
             $rs = mysqli_query($con,$query);
     		$id_playlist=$_GET['id'];
 
@@ -53,7 +52,7 @@
                          <td><?php echo $fila['artista']?></td>
                          <td><?php echo $fila['titulo']?></td>
                          <td ><?php echo $fila['genero']?></td>
-                         <td><a href='agregarLista.php?id_cancion=<?php echo $fila['id_cancion'] ?>& id_playlist=<?php echo $id_playlist  ?>'>Cargar a mi lista</a></td>
+                         <td><a href='agregarLista.php?id_cancion=<?php echo $fila['id_cancion'] ?>& id_playlist=<?php echo $id_playlist  ?> '>Cargar a mi lista</a></td>
   									 
                         
                       	</tr>								
