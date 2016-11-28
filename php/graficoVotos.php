@@ -7,8 +7,6 @@
 	<link  href="../bootstrap/js/bootstrap.min.js"  rel="stylesheet" />
 	<link  href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="../images/favicon.ico">
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	</head>
 <body>  
 		<?php 
@@ -18,29 +16,64 @@
 			exit;
 		}
 		?>
+		
 	<div id="outer" >
 		<div id="wrapper" ><div id="header">
 			<h1>Disqueria-T</h1>
 			<p>bienvenido <?php echo $_SESSION['email'];?> </p>
 		</div>
 		<div id="fondolista">
-			   <li id="m2"><button class="btns" onclick = "location='descargarPdf.php'">Exportar</button></li></a>       
-            <?PHP include('prueba2.php'); ?> 
-           <img src="imagen1.png"></img>
+			 <?php
+			 $sum=1;
+            include("conexion.php");
+            $con=conectar();
+            $query = "SELECT * FROM playlist ORDER BY votos DESC "; 
+            $rs = mysqli_query($con,$query);
+    		$sum;
+          
+            ?>
+            
            
-              
-                   
-                       
-             
-               
-                </div>
+          
+              <table class="table table-bordered">
+                   <thead>
+                      <tr>
+                         <th>Posicion</th>
+                         <th>Cantidad de votos</th>
+                         <th>Nombre</th>
+                         <th>Genero</th>
+                         <th>Foto</th>
+                         <th>QR</th>
+                         
+                      </tr>
+                   </thead>
+                    <?php while ($fila = mysqli_fetch_array($rs)){ 
+                    	
+                    	?>
+                   <tbody> 
+                      <tr>
 
-	<button class="btns" onclick = "location='graficoCantidadPlaylist.php'">Cantidad de PLaylist</button>
-	<button class="btns" onclick = "location='graficoRankingPlaylist.php'">Ranking de Playlist</button>
+ 						<td><?php echo ($sum++)?></td>	                     
+                         <td><?php echo $fila['votos']?></td>
+                         <td><?php echo $fila['nombre']?></td>
+                         <td><?php echo $fila['genero']?></td>
+                         
+                          <td ><img height="50px" src="../images/playlist/<?php echo $fila['foto']?>" /></td>  
+                         </tr>								
+                      
+                      <?php }?>
+                   </tbody>
+                         </table>
+
+                       <ul>
+                       <li id="m2"><button class="btns" onclick = "location='graficoUsuarios.php'">Volver</button></li></a>
+                       </ul>
+                </div>
+		<button class="btns" onclick = "location='graficoCantidadPlaylist.php'">Cantidad de PLaylist</button>
+	<button class="btns" onclick = "location='graficoPlaylist.php'">Ranking de Playlist</button>
 	<button class="btns" onclick = "location='graficoVotos.php'">Ranking por votos</button>
 	<button class="btns" onclick = "location='graficoUsuarios.php'">Usuarios Borrados</button>
 	<button class="btns" onclick = "location='administrador.php'">Volver</button>
-	
 	 <div id="body">
 			<div id="body-inner">
 				

@@ -39,7 +39,7 @@
                          <th>Nombre</th>
                          <th>Genero</th>
                          <th>Foto</th>
-                         <th>Comentario</th>>
+                         <th>Comentario</th>
                          <th>Accion </th>
                       </tr>
                    </thead>
@@ -49,10 +49,10 @@
                       <tr>
                          <td><?php echo $fila['nombre']?></td>
                          <td><?php echo $fila['genero']?></td>
-                         <td ><img height="50px" src="../images/perfil/<?php echo $fila['foto']?>" /></td>  
+                         <td ><img height="50px" src="../images/playlist/<?php echo $fila['foto']?>" /></td>  
                           <td><?php echo $fila['comentario']?></td>
                          
-                         <td><a href='verListaAdministrador.php?id_playlist=<?php echo $fila['id_playlist'] ?>'><button>Ver Lista</button></a>
+                         <td><a href='verListaAdministrador2.php?id_playlist=<?php echo $fila['id_playlist'] ?>'><button>Ver Lista</button></a>
                          
                       <a href='borrarLista.php?id_playlist=<?php echo $fila['id_playlist']  ?> '><button>Borrar Lista</button></a></td>
                          <!--td><a href='borrarUsuario.php?id_cancion=<?php //echo $fila[//'id_cancion'] ?>'>Borrar</a></td-->

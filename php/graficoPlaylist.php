@@ -59,7 +59,7 @@
                          <td><?php echo $fila['nombre']?></td>
                          <td><?php echo $fila['genero']?></td>
                          
-                          <td ><img height="50px" src="../images/perfil/<?php echo $fila['foto']?>" /></td>  
+                          <td ><img height="50px" src="../images/playlist/<?php echo $fila['foto']?>" /></td>  
                          </tr>								
                       
                       <?php }?>
@@ -67,10 +67,14 @@
                          </table>
 
                        <ul>
-                       <li id="m2"><button class="btns" onclick = "location='administrador.php'">Volver</button></li></a>
+                       <li id="m2"><button class="btns" onclick = "location='graficoUsuarios.php'">Volver</button></li></a>
                        </ul>
                 </div>
-		
+		<button class="btns" onclick = "location='graficoCantidadPlaylist.php'">Cantidad de PLaylist</button>
+	<button class="btns" onclick = "location='graficoPlaylist.php'">Ranking de Playlist</button>
+	<button class="btns" onclick = "location='graficoVotos.php'">Ranking por votos</button>
+	<button class="btns" onclick = "location='graficoUsuarios.php'">Usuarios Borrados</button>
+	<button class="btns" onclick = "location='administrador.php'">Volver</button>
 	 <div id="body">
 			<div id="body-inner">
 				

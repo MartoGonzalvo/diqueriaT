@@ -27,11 +27,11 @@
             include("conexion.php");
             $con=conectar();
            	include("funcionAmigos.php");
-           	
-            $query = "SELECT p.nombre, c.artista,c.genero,c.titulo,c.id_cancion
+           	$id_usuario=$_GET['id_usuario'];
+            $query = "SELECT p.nombre, p.genero, p.foto
 						FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
 						INNER JOIN cancion as c on con.id_cancion=c.id_cancion
-						WHERE p.id_playlist = '9' ";
+						WHERE p.crea_id_usuario = '".$id_usuario."'GROUP BY p.id_playlist ";
             $rs = mysqli_query($con,$query);
     
             ?>
@@ -41,9 +41,9 @@
               <table class="table table-bordered">
                    <thead>
                       <tr>
-                         <th>Titulo</th>
-                         <th>Artista</th>
+                         <th>Nombe</th>
                          <th>Genero</th>
+                         <th>Foto</th>
                          <th>Accion</th>
                       </tr>
                    </thead>
@@ -51,10 +51,10 @@
                     	?>
                    <tbody> 
                       <tr>
-                         <td><?php echo $fila['titulo']?></td>
-                         <td><?php echo $fila['artista']?></td>
+                         <td><?php echo $fila['nombre']?></td>
                          <td><?php echo $fila['genero']?></td>
-    <td><a href='borrarCancion.php?id_cancion=<?php echo $fila['id_cancion']  ?> & id_playlist=<?php echo $id  ?>'>Borrar</a></td>
+                         <td><img height="50px" 	align="right" vspace="5" hspace="25" src="../images/playlist/<?php echo $fila['foto']; ?>" ></img></td>
+    <!--td><a href='borrarCancion.php?id_cancion=<?php echo $fila['id_cancion']  ?> & id_playlist=<?php echo $id  ?>'>Borrar</a></td-->
                       
 
                       </tr>								
@@ -67,11 +67,13 @@
                    </tbody>
                          </table>
 
-                       <button class="btns" onclick = "location='playlistUsuario.php'">Volver</button>
+                       <button class="btns" onclick = "location='listarUsuarios.php'">Volver</button>
                        <button class="btns" onclick = "location='usuario.php'">Volver a usuario</button>
-                       <button class="btns"onclick = "location.href='cargarTema.php?id=<?PHP echo $id?>'" >Buscar Temas</button>
+                      
                        
                 </div>
+
+                
 		
 	 <div id="body">
 			<div id="body-inner">

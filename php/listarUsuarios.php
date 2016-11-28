@@ -51,9 +51,11 @@
                       <tr>
                          <td><?php echo $fila['nombre']?></td>
                          <td><?php echo $fila['apellido']?></td>
+                          <td><a href='agregarUsuario.php?id_usuario=<?php echo $fila['id_usuario'] ?>'>Agregar</a></td>
                          <td><a href='verListaUsuario.php?id_usuario=<?php echo $fila['id_usuario'] ?>'>Ver Listas</a></td>
-                         <td><a href='agregarUsuario.php?id_usuario=<?php echo $fila['id_usuario'] ?>'>Agregar</a></td>
+                        
                      	 <td ><img height="50px" src="../images/perfil/<?php echo $fila['ubicacion']?>" /></td>  
+                      	<td ><form action="comentario.php?id_usuario=<?php echo $fila['id_usuario'] ?>" method="POST" name="coment"  > <textarea name="comentario" id="comentario" value="deja" rows="1" cols="30" placeholder="Escribe aquí el comentario, tenes 140 caracteres!!" ></textarea> <button>Enviar</button> </form></td >	
                       </tr>								
                       
                       <?php }?>

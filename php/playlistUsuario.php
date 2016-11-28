@@ -27,8 +27,9 @@
             include("conexion.php");
             $con=conectar();
            	 $id=$_SESSION['id_usuario'];
+           	
             $query = "SELECT *
-						FROM playlist WHERE  crea_id_usuario = '".$id."'";
+						FROM playlist WHERE  crea_id_usuario = '".$id."'   ";
             $rs = mysqli_query($con,$query);
     		
             ?>
@@ -41,20 +42,22 @@
                          <th>Nombre de lista</th>
                         
                          <th>Estado</th>
-                         <th>Accion</th>
+                         
                          <th>Foto</th>
-
+                         <th>Accion</th>
                       </tr>
                    </thead>
                     <?php while ($fila = mysqli_fetch_array($rs)){ 
+                    	$id_playlist=$fila['id_playlist'];
                     	?>
                    <tbody> 
                       <tr>
                          <td><?php echo $fila['nombre']?></td>
                          <td><?php echo $fila['estado']?></td>
-                         <td><a href='verLista.php?id_playlist=<?php echo $fila['id_playlist'] ?> & foto=<?php echo $fila['foto']  ?>' >Ver Lista</a></td>
-                        <td ><img height="50px" src="../images/playlist/<?php echo $fila['foto']?>" /></td>  
 
+                        <td ><img height="50px" src="../images/playlist/<?php echo $fila['foto']?>" /></td>  
+                         <td><a href='verLista.php?id_playlist=<?php echo $fila['id_playlist'] ?> & foto=<?php echo $fila['foto']  ?>' ><button>Ver Lista</button></a>
+                         <a href='borrarListaU.php?id_playlist=<?php echo $id_playlist  ?>  '><button  >Borrar</button></a></td>
 
                       </tr>								
                       
@@ -67,7 +70,7 @@
                     <button class="btns" onclick = "location='usuario.php'">Volver</button>
                     <button class="btns" data-toggle= "modal" data-target="#crea">Crear Lista</button>
 					<?php include("../includes/crealista.inc") ?>
-		             <button class="btns" data-toggle= "modal" data-target="#cargar">Cargar temas</button></a>
+		             <button class="btns" data-toggle= "modal" data-target="#cargar">Subir temas</button></a>
 					<?php include("../includes/cargar.inc") ?>
 		              		              
 

@@ -8,15 +8,15 @@
          <div class="alert-box success form-feedback"></div>
           <div class="register-top-grid">
 		  
-   <!--label for="artista" class="col-lg-2 control-label">ARTISTA</label><input name="artista"  type="text" required="required" /></br>
+   <label for="artista" class="col-lg-2 control-label">ARTISTA</label><input name="artista"  type="text" required="required" /></br>
    <label for="genero" class="col-lg-2 control-label">GENERO</label><input name="genero"  type="text" required="required"/></br>
-   <label for="titulo" class="col-lg-2 control-label">TITULO</label><input name="titulo"  type="text" required="required"/></br-->
+   <label for="titulo" class="col-lg-2 control-label">TITULO</label><input name="titulo"  type="text" required="required"/></br>
 	
 
 
 
 
-		    <input name="foto" type="file" required="required"/>
+		    <input name="tema" type="file" required="required"/>
 						
 
 

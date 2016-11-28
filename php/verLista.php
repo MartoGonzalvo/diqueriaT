@@ -7,6 +7,25 @@
 	<link  href="../bootstrap/js/bootstrap.min.js"  rel="stylesheet" />
 	<link  href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="../images/favicon.ico">
+
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script>
+		function cargar(div , desde)
+		{
+		     $(div).load(desde);
+		}
+		</script>
+	<script type="text/javascript">
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("#element").hide();
+  });
+  $("#show").click(function(){
+    $("#element").show();
+  });
+});
+</script>
+
 	</head>
 <body>  
 		<?php 
@@ -54,8 +73,9 @@
                          <td><?php echo $fila['titulo']?></td>
                          <td><?php echo $fila['artista']?></td>
                          <td><?php echo $fila['genero']?></td>
-    <td><a href='borrarCancion.php?id_cancion=<?php echo $fila['id_cancion']  ?> & id_playlist=<?php echo $id  ?>  '>Borrar</a></td>
-                      
+    <td><a href='borrarCancion.php?id_cancion=<?php echo $fila['id_cancion']  ?> & id_playlist=<?php echo $id  ?>  '><button  >Borrar</button></a>
+    		
+                   
 
                       </tr>								
                        
@@ -70,9 +90,48 @@
                        <button class="btns" onclick = "location='playlistUsuario.php'">Volver</button>
                        <button class="btns" onclick = "location='usuario.php'">Volver a usuario</button>
                        <button class="btns"onclick = "location.href='cargarTema.php?id=<?PHP echo $id?>'" >Buscar Temas</button>
-                       
+                       <a href="#" id="show"> <button class="btns">Escuchar</button></a>
+    
+                        
                 </div>
+
 		
+
+		 <?php
+										  
+										 $query = "SELECT p.nombre, c.artista,c.genero,c.titulo,c.id_cancion,p.foto,c.ubicacion
+										 												FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
+										 												INNER JOIN cancion as c on con.id_cancion=c.id_cancion
+										 												WHERE p.id_playlist = '".$id."' ";
+            								$rs = mysqli_query($con,$query);
+            								$rs2 = mysqli_query($con,$query);
+            								 while ($coso = mysqli_fetch_array($rs)){ 
+										 $nombre = $coso['nombre'];
+										 $foto=$coso['foto'];
+														 }
+
+										  
+                    					?>
+                    					<div id="element" style="display: none;">
+  										 <div id="close"><a href="#" id="hide">cerrar</a></div>
+										<div id="player">
+												<p style="font-size: 12pt; color: red"> <?php echo $nombre; ?> </p>
+												<img height="50px" 	align="right" vspace="5" hspace="25" src="../images/playlist/<?php echo $foto; ?>" ></img>
+										<audio controls="" id="audio" preload="auto" tabindex="0" type="audio/mpeg">
+
+										<source src="" type="audio/mp3">
+										        Hola, tu navegador no está actualizado y no puede mostrar este contenido.
+										    </audio>
+										</div>
+										<ul id="playlist">
+										<?php while ($fila = mysqli_fetch_array($rs2)){ ?>
+										
+										<li class="active"><a href="../mp3/<?php  echo $fila['ubicacion']; ?>"><?php echo $fila['titulo']?></a></li>
+										
+										<?php }?>
+										
+										</ul>
+										<script src="../js/java.js"></script></div>
 	 <div id="body">
 			<div id="body-inner">
 				

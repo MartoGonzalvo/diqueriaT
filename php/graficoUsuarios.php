@@ -8,7 +8,7 @@
 	<link  href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="../images/favicon.ico">
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
 	</head>
 <body>  
 		<?php 

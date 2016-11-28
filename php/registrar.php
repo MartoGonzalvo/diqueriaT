@@ -20,7 +20,7 @@ $cabeceras="mgonzalvo@conabip.gob.ar";
 	 
 	 if ($count == 1) {
 	 echo "<br />". "El Nombre de Usuario ya a sido tomado." . "<br />";
-	 
+	  
 	 echo "<a href='../index.php'>Por favor escoga otro Nombre</a>";
 		}else{
 

@@ -37,7 +37,14 @@
 			</ul>
  	           <?php include("includes/logueo.inc") ?>
  	          <?php include("includes/registro.inc") ?>
-			
+			<div id="search">
+				<h2>Busca por Genero</h2>
+				<form action="php/buscarlista.php" method="POST" name="busca" id="buscarlista">
+				
+					<input type="text" class="text" name="buscar" value=""  /> <input type="submit" name="submit" value="Go &gt; &gt;" id="submit" class="submit" />
+				</form>
+				
+			</div>
 		</div>
 		
 	 <div id="body">
@@ -54,6 +61,7 @@
 						<li><a href="#">&gt; &nbsp; Usuarios por Zona</a></li>
 					</ul>
 					<p><a href=""> </a>.</p>
+
 				</div>
 				<div id="body-right">
 					<h2>Top 5 Playlist</h2>
@@ -66,7 +74,7 @@
 										 $query = "SELECT p.nombre, c.artista,c.genero,c.titulo,c.id_cancion,p.foto,c.ubicacion
 										 												FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
 										 												INNER JOIN cancion as c on con.id_cancion=c.id_cancion
-										 												WHERE p.id_playlist = '98' ";
+										 												WHERE p.id_playlist = '107' ";
             								$rs = mysqli_query($con,$query);
             								$rs2 = mysqli_query($con,$query);
             								 while ($coso = mysqli_fetch_array($rs)){ 
@@ -111,6 +119,7 @@
 				</div>
 				<div class="clear"></div>
 			</div>
+
 			<div id="copyright">
 				<div id="copyright-left">
 					<div><p>Materia: Programacion WEB II</p></div><div class="fclear"></div>
