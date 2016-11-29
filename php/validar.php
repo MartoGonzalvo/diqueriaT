@@ -4,7 +4,7 @@ $con=conectar();
 session_start();
 	 
 	$email=$_POST['email'];
-	$pass= $_POST['pass'];
+	$pass= md5($_POST['pass']);
 
 	$consulta = mysqli_query( $con, "SELECT * FROM usuario WHERE email = '$email' and contrasena = '$pass' ");
  		

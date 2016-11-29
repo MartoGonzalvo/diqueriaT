@@ -35,18 +35,24 @@ $(document).ready(function(){
 			
 			exit;
 		}
+			include '../phpqrcode/qrlib.php';
 		    include("conexion.php");
             $con=conectar();
            	$id=$_GET['id_playlist'];
-           	
+         	
+         	$file ="qr.png";
+
+			$data =  "http://localhost/diqueriaT/php/verLista.php?id_playlist= $id"; 
+			QRcode::png($data, $file);	
         
             ?>
             
 	<div id="outer" >
 		<div id="wrapper" ><div id="header">
-		
+		<img height="100px" 	align="right" vspace="15" hspace="25" src="../php/qr.png" ></img>
 			<h1>Disqueria-T</h1>
 			<p>bienvenido <?php echo $_SESSION['email'];?> </p>
+
 		</div>
 		<div id="fondolista">
 			 

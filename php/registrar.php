@@ -1,5 +1,5 @@
 <?php 
-
+ 
 include("conexion.php");
 
 $con=conectar();
@@ -27,13 +27,26 @@ $cabeceras="mgonzalvo@conabip.gob.ar";
 
 	if($cont==$rcont){
 		$cont = md5($cont);
-		$query = "INSERT INTO usuario (id_usuario,nombre, apellido, email,contrasena,tiene_id_perfi, tiene_id_ubicacion, estado) VALUES (NULL, '".$nombre."', '".$apellido."', '".$email."','".$cont."', 2, 1,'activo')";
+		
+		 ini_set('post_max_size','100M');
+			$carpeta="../images/perfil/";
+			opendir($carpeta);
+			$destino=$carpeta.$_FILES['foto']['name'];
+			
+			move_uploaded_file($_FILES['foto']['tmp_name'],$destino);
+			echo "subido<br>";
+			$nombreFoto=$_FILES['foto']['name'];
+			//echo "<img src=\"../mp3/$nombre\"><br>";
+			echo  $_FILES['foto']['name'] ;
+			echo $_FILES['foto']['error'];
+
+$query = "INSERT INTO usuario (id_usuario,nombre, apellido, email,contrasena,tiene_id_perfi, tiene_id_ubicacion, estado,ubicacion) VALUES (NULL, '".$nombre."', '".$apellido."', '".$email."','".$cont."', 2, 1,'activo','".$nombreFoto."')";
 
 		$rs = mysqli_query($con, $query);
-			
+		
 			
 
-		mail($email, $titulo, $mensaje, $cabeceras);
+		@mail($email, $titulo, $mensaje, $cabeceras);
 		
 
 		header("Location: ../index.php");

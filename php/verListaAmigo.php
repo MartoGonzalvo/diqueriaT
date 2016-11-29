@@ -8,14 +8,26 @@
 	<link  href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="../images/favicon.ico">
 	</head>
-<body>   
+<body>  
 		<?php 
 		session_start();
-		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 2 ){
+		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 2){
 			header("Location: ../index.php");
-			
+			$id_mi=$_SESSION['id_usuario'];
 			exit;
 		}
+			
+		 include("conexion.php");
+            $con=conectar();
+           include("funcionAmigos.php");
+           	$id_usuario=$_GET['id_usuario'];
+            $query = "SELECT p.nombre, p.genero, p.foto
+						FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
+						INNER JOIN cancion as c on con.id_cancion=c.id_cancion
+						WHERE p.crea_id_usuario = '".$id_usuario."'GROUP BY p.id_playlist ";
+            
+
+
 		?>
 	<div id="outer" >
 		<div id="wrapper" ><div id="header">
@@ -23,26 +35,15 @@
 			<p>bienvenido <?php echo $_SESSION['email'];?> </p>
 		</div>
 		<div id="fondolista">
-			  <?php
-            include("conexion.php");
-            $con=conectar();
-            $query = "SELECT * FROM usuario WHERE estado = 'activo'";
-            $rs = mysqli_query($con,$query);
-    
-            ?>
-            
-           
+			           
           
               <table class="table table-bordered">
                    <thead>
                       <tr>
-                         <th>Usuario</th>
-                         <th>Listas</th>
-                          <th>Agregar a amigos</th>
-                          <th>Ver Lista</th>
-                          <th>Foto</th>
-                          <th>Comentario</th>
-                         
+                         <th>Nombe</th>
+                         <th>Genero</th>
+                         <th>Foto</th>
+                         <th>Accion</th>
                       </tr>
                    </thead>
                     <?php while ($fila = mysqli_fetch_array($rs)){ 
@@ -50,22 +51,28 @@
                    <tbody> 
                       <tr>
                          <td><?php echo $fila['nombre']?></td>
-                         <td><?php echo $fila['apellido']?></td>
-                          <td><a href='agregarUsuario.php?id_usuario=<?php echo $fila['id_usuario'] ?>'>Agregar</a></td>
-                         <td><a href='verListaAmigo.php?id_usuario=<?php echo $fila['id_usuario'] ?>'>Ver Listas</a></td>
-                        
-                     	 <td ><img height="50px" src="../images/perfil/<?php echo $fila['ubicacion']?>" /></td>  
-                      	<td ><form action="comentario.php?id_usuario=<?php echo $fila['id_usuario'] ?>" method="POST" name="coment"  > <textarea name="comentario" id="comentario" value="deja" rows="1" cols="30" placeholder="Escribe aquí el comentario, tenes 140 caracteres!!" ></textarea> <button>Enviar</button> </form></td >	
-                      </tr>								
+                         <td><?php echo $fila['genero']?></td>
+                         <td><img height="50px" 	align="right" vspace="5" hspace="25" src="../images/playlist/<?php echo $fila['foto']; ?>" ></img></td>
+    <td><a href=''  ><button>Descargar Lista</button></a></td>
                       
+
+                      </tr>								
+                       
+                      	
+
+
+
                       <?php }?>
                    </tbody>
                          </table>
 
-                       <ul>
-                       <li id="m2"><button class="btns" onclick = "location='usuario.php'">Volver</button></li></a>
-                       </ul>
+                       <button class="btns" onclick = "location='listarUsuarios.php'">Volver</button>
+                       <button class="btns" onclick = "location='usuario.php'">Volver a usuario</button>
+                      
+                       
                 </div>
+
+                
 		
 	 <div id="body">
 			<div id="body-inner">
