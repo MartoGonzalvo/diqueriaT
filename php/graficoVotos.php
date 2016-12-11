@@ -43,7 +43,7 @@
                          <th>Nombre</th>
                          <th>Genero</th>
                          <th>Foto</th>
-                         <th>QR</th>
+                         
                          
                       </tr>
                    </thead>
@@ -65,11 +65,8 @@
                    </tbody>
                          </table>
 
-                       <ul>
-                       <li id="m2"><button class="btns" onclick = "location='graficoUsuarios.php'">Volver</button></li></a>
-                       </ul>
-                </div>
-		<button class="btns" onclick = "location='graficoCantidadPlaylist.php'">Cantidad de PLaylist</button>
+                       </div>
+		
 	<button class="btns" onclick = "location='graficoPlaylist.php'">Ranking de Playlist</button>
 	<button class="btns" onclick = "location='graficoVotos.php'">Ranking por votos</button>
 	<button class="btns" onclick = "location='graficoUsuarios.php'">Usuarios Borrados</button>

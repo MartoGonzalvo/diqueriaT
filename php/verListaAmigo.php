@@ -19,7 +19,7 @@
 			
 		 include("conexion.php");
             $con=conectar();
-           include("funcionAmigos.php");
+          // include("funcionAmigos.php");
            	$id_usuario=$_GET['id_usuario'];
             $query = "SELECT p.nombre, p.genero, p.foto
 						FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
@@ -27,7 +27,8 @@
 						WHERE p.crea_id_usuario = '".$id_usuario."'GROUP BY p.id_playlist ";
             
 
-
+						$rs=mysqli_query($con,$query);
+    
 		?>
 	<div id="outer" >
 		<div id="wrapper" ><div id="header">

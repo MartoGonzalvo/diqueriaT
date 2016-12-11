@@ -35,7 +35,7 @@
                
                 </div>
 
-	<button class="btns" onclick = "location='graficoCantidadPlaylist.php'">Cantidad de PLaylist</button>
+	<!--button class="btns" onclick = "location='graficoCantidadPlaylist.php'">Cantidad de PLaylist</button-->
 	<button class="btns" onclick = "location='graficoPlaylist.php'">Ranking de Playlist</button>
 	<button class="btns" onclick = "location='graficoVotos.php'">Ranking por votos</button>
 	<button class="btns" onclick = "location='graficoUsuarios.php'">Usuarios Borrados</button>

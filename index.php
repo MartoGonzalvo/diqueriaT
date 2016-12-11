@@ -54,12 +54,7 @@
 					<h2 >Disqueria T </h2>
 					<p>Aqui encontraras amigos con tus gustos musicales, si no para que hacerte amigo.</p>
 					<p> Reggae, Rock, Ska, Soul, Rebel, Pop para divertirse, Dancehall, Blues, Rhythm and blues, Disco, ++</p>
-					<ul class="blank">
-						<li><a href="#">&gt; &nbsp; Usuarios Destacados</a></li>
-						<li><a href="#">&gt; &nbsp; Peores Listas</a></li>
-						<li><a href="#">&gt; &nbsp; Lista de Temas</a></li>
-						<li><a href="#">&gt; &nbsp; Usuarios por Zona</a></li>
-					</ul>
+					
 					<p><a href=""> </a>.</p>
 
 				</div>
@@ -74,7 +69,7 @@
 										 $query = "SELECT p.nombre, c.artista,c.genero,c.titulo,c.id_cancion,p.foto,c.ubicacion
 										 												FROM playlist as p INNER JOIN contiene as con ON p.id_playlist= con.id_playlist
 										 												INNER JOIN cancion as c on con.id_cancion=c.id_cancion
-										 												WHERE p.id_playlist = '107' ";
+										 												WHERE p.id_playlist = '121' ";
             								$rs = mysqli_query($con,$query);
             								$rs2 = mysqli_query($con,$query);
             								 while ($coso = mysqli_fetch_array($rs)){ 
@@ -108,11 +103,11 @@
 										</div>
 							 </div>
 
-						<div class="btns">
+						<!--div class="btns">
 
-							<a href="#"><span>Votar</span></a>
+							<a href=""><span>Votar</span></a>
 							<a href="#"><span>Agregar </span></a>
-						</div>
+						</div-->
 						</div>
 						
 					</div>
