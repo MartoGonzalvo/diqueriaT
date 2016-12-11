@@ -11,9 +11,18 @@
 <body> 
 		<?php  
 		session_start();
-		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 2 ){
-			header("Location: ../index.php");
+		if( !isset($_SESSION["email"]) || $_SESSION["rol"] != 2 || $_SESSION['estado']='borrado'){
+			$msg=('puto forro');
+			header("Location: ../index.php?$msg=$msg");
+			
+				
+
+
+
+
+			;
 			exit;
+
 		}
 		?>
 	<div id="outer" >

@@ -31,6 +31,7 @@
 			<div id="head"></div>
 			<div id="head-pip"></div>
 			<ul>
+			<span id="msg"><?php $msg=''; echo $msg; ?></span>
 				<li id="m1"><button class="btn" data-toggle= "modal" data-target="#login">Login</button></li>
 				<li id="m2"><button class="btn" data-toggle= "modal" data-target="#registro">Registro</button></li>
 					
@@ -39,6 +40,7 @@
  	          <?php include("includes/registro.inc") ?>
 			<div id="search">
 				<h2>Busca por Genero</h2>
+
 				<form action="php/buscarlista.php" method="POST" name="busca" id="buscarlista">
 				
 					<input type="text" class="text" name="buscar" value=""  /> <input type="submit" name="submit" value="Go &gt; &gt;" id="submit" class="submit" />

@@ -10,8 +10,8 @@ session_start();
  		
  	
 		if(  mysqli_num_rows($consulta) != 1 ){
-			echo ("error validacion");
-			//header("Location: ../index.php?error=1"); //TODO: revisar
+			
+			header("Location: ../index.php?error=1"); //TODO: revisar
 			exit();
 		}else{
 		
@@ -20,6 +20,7 @@ session_start();
 			$_SESSION["rol"] = $fila['tiene_id_perfi'];
 			$_SESSION["id_usuario"]=$fila['id_usuario'];
 			$_SESSION["ubicacion"]=$fila["ubicacion"];
+			$_SESSION["estado"]=$fia['estado'];
 					if($fila["tiene_id_perfi"]=="1"){
 						
 						header("Location: administrador.php");
